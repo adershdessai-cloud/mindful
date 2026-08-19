@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Mindful Room | Clinical therapy, online or in person</title>
-  <meta name="description" content="The Mindful Room offers calm, grounded therapy in a space designed for presence, healing, and gentle self-discovery.">
+  <meta name="description" content="The Mindful Room offers individual counselling for young adults navigating life’s transitions—anxiety, relationships, burnout, and more. You don’t need a crisis to deserve a safe space.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -396,6 +396,20 @@
       background-color: color-mix(in srgb, #25D366 24%, var(--bg));
     }
 
+    .wa-icon {
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .whatsapp-fab .wa-icon {
+      width: 20px;
+      height: 20px;
+    }
+
+    .whatsapp-fab .wa-icon path:last-child {
+      fill: #fff;
+    }
+
     /* ==========================================================================
        Site Header & Navigation
        ========================================================================== */
@@ -437,6 +451,14 @@
 
     .logo:hover {
       color: var(--ink);
+    }
+
+    .logo__img {
+      width: 1.875rem;
+      height: 1.875rem;
+      object-fit: contain;
+      flex-shrink: 0;
+      border-radius: var(--radius-sm);
     }
 
     .logo__mark {
@@ -617,24 +639,28 @@
     }
 
     .hero__title {
-      font-size: clamp(2.5rem, 1.7rem + 3.2vw, 4rem);
+      font-size: clamp(2.35rem, 1.55rem + 3vw, 3.65rem);
       font-weight: var(--weight-display-bold);
       line-height: 1.08;
       letter-spacing: -0.02em;
-      max-width: 12ch;
-    }
-
-    .hero__title em {
-      font-style: italic;
-      font-weight: var(--weight-display);
-      color: var(--sage-deep);
+      max-width: 16ch;
     }
 
     .hero__lead {
       font-size: var(--text-lg);
       line-height: var(--leading-relaxed);
       color: var(--ink-soft);
-      max-width: 36ch;
+      max-width: 48ch;
+    }
+
+    .hero__subline {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 1rem + 0.7vw, 1.4rem);
+      font-weight: var(--weight-display);
+      font-style: italic;
+      letter-spacing: -0.01em;
+      color: var(--sage-deep);
+      margin-top: calc(-1 * var(--space-2));
     }
 
     .hero__actions {
@@ -770,7 +796,7 @@
       }
 
       .hero__title {
-        max-width: 14ch;
+        max-width: 18ch;
       }
 
       .hero__visual {
@@ -894,7 +920,7 @@
 
     .services__grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       border-top: 1px solid var(--border-subtle);
       border-left: 1px solid var(--border-subtle);
       background-color: var(--border-subtle);
@@ -976,9 +1002,9 @@
       text-transform: uppercase;
     }
 
-    @media (max-width: 960px) {
+    @media (max-width: 860px) {
       .services__grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1062,121 +1088,249 @@
     }
 
     /* ==========================================================================
-       Therapists
+       About Me
        ========================================================================== */
 
-    .therapists {
+    .about-me {
       background-color: var(--bg-alt);
     }
 
-    .therapists__header {
-      margin-bottom: clamp(2rem, 4vw, 3rem);
-      max-width: 38rem;
+    .about-me__grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
     }
 
-    .therapists__intro {
-      margin-top: var(--space-4);
+    .about-me__photo {
+      width: 100%;
+      max-width: 22rem;
+      aspect-ratio: 4 / 5;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background:
+        linear-gradient(160deg, color-mix(in srgb, var(--sage) 25%, var(--bg)), var(--bg-alt));
+      border: 1px solid var(--border-subtle);
+      display: grid;
+      place-items: center;
+    }
+
+    .about-me__photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background:
+        linear-gradient(160deg, color-mix(in srgb, var(--sage) 25%, var(--bg)), var(--bg-alt));
+    }
+
+    .about-me__photo-fallback {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-style: italic;
+      color: var(--sage-deep);
+      text-align: center;
+      padding: var(--space-5);
+    }
+
+    .about-me__copy {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    .about-me__copy p {
+      max-width: 52ch;
+      font-size: var(--text-lg);
+      color: var(--ink-soft);
+    }
+
+    .about-me__creds {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--dusk);
+    }
+
+    .approach-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .approach-tags li {
+      padding: 0.4rem 0.85rem;
+      border: 1px solid color-mix(in srgb, var(--sage) 35%, transparent);
+      border-radius: var(--radius-pill);
+      background-color: color-mix(in srgb, var(--sage) 10%, var(--bg));
+      color: var(--sage-deep);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .about-me__quote {
+      padding: var(--space-4) 0 var(--space-4) var(--space-5);
+      border-left: 3px solid var(--sage);
+    }
+
+    .about-me__quote p {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-style: italic;
+      font-weight: var(--weight-display);
+      color: var(--ink);
+      max-width: 36ch;
+      line-height: var(--leading-snug);
+    }
+
+    @media (max-width: 860px) {
+      .about-me__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-me__photo {
+        max-width: 16rem;
+      }
+    }
+
+    /* ==========================================================================
+       Instagram / Journal
+       ========================================================================== */
+
+    .instagram,
+    .journal {
+      background-color: var(--bg);
+    }
+
+    .instagram__inner,
+    .journal__inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      max-width: 48rem;
+    }
+
+    .instagram__intro,
+    .journal__intro {
       font-size: var(--text-lg);
       color: var(--ink-soft);
       max-width: 42ch;
     }
 
-    .therapists__grid {
+    .instagram__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-3);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      max-width: 36rem;
+    }
+
+    .instagram__thumb {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: var(--radius-md);
+      background:
+        linear-gradient(145deg, color-mix(in srgb, var(--sage) 18%, var(--bg-alt)), var(--bg-alt));
+      border: 1px solid var(--border-subtle);
+      overflow: hidden;
+    }
+
+    .instagram__play {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: color-mix(in srgb, var(--ink) 55%, transparent);
+    }
+
+    .instagram__play svg {
+      width: 1.75rem;
+      height: 1.75rem;
+      opacity: 0.75;
+    }
+
+    @media (max-width: 560px) {
+      .instagram__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ==========================================================================
+       Blog
+       ========================================================================== */
+
+    .blog {
+      background-color: var(--bg-alt);
+    }
+
+    .blog__header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-bottom: clamp(2rem, 4vw, 3rem);
+    }
+
+    .blog__list {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: clamp(1.25rem, 2.5vw, 1.75rem);
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .therapist-card {
+    .blog-card {
       display: flex;
       flex-direction: column;
-      gap: var(--space-4);
+      gap: var(--space-3);
       padding: clamp(1.25rem, 2.5vw, 1.75rem);
       background-color: var(--bg);
       border: 1px solid var(--border-subtle);
-    }
-
-    .therapist-card__avatar {
-      width: 4.5rem;
-      height: 4.5rem;
-      border-radius: 50%;
-      overflow: hidden;
-      flex-shrink: 0;
-    }
-
-    .therapist-card__avatar svg {
-      width: 100%;
       height: 100%;
-      display: block;
     }
 
-    .therapist-card__name {
+    .blog-card__title {
       font-family: var(--font-display);
       font-size: var(--text-xl);
       font-weight: var(--weight-display-bold);
-      letter-spacing: -0.01em;
       color: var(--ink);
       line-height: var(--leading-snug);
     }
 
-    .therapist-card__creds {
-      margin-top: var(--space-1);
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: var(--weight-medium);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--dusk);
-    }
-
-    .therapist-card__bio {
+    .blog-card__excerpt {
       font-size: var(--text-base);
-      line-height: var(--leading-relaxed);
       color: var(--ink-soft);
+      line-height: var(--leading-relaxed);
       max-width: none;
+      flex-grow: 1;
     }
 
-    .therapists__footer {
-      margin-top: clamp(1.75rem, 3vw, 2.5rem);
-    }
-
-    .therapists__footer-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
+    .blog-card__link {
       font-size: var(--text-sm);
       font-weight: var(--weight-medium);
       color: var(--sage-deep);
       text-decoration: none;
       border-bottom: 1px solid color-mix(in srgb, var(--sage-deep) 35%, transparent);
-      padding-bottom: 0.1rem;
-      transition: color 0.2s ease, border-color 0.2s ease;
+      align-self: flex-start;
     }
 
-    .therapists__footer-link:hover {
+    .blog-card__link:hover {
       color: var(--sage);
-      border-bottom-color: color-mix(in srgb, var(--sage) 50%, transparent);
     }
 
-    .therapists__footer-link span[aria-hidden="true"] {
-      font-family: var(--font-mono);
-      will-change: transform;
-      transition: transform 0.2s ease;
-      display: inline-block;
-    }
-
-    .therapists__footer-link:hover span[aria-hidden="true"] {
-      transform: translateX(3px);
-    }
-
-    @media (max-width: 960px) {
-      .therapists__grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
-    @media (max-width: 560px) {
-      .therapists__grid {
+    @media (max-width: 860px) {
+      .blog__list {
         grid-template-columns: 1fr;
       }
     }
@@ -1201,6 +1355,13 @@
 
     .testimonials__header {
       margin-bottom: clamp(2rem, 4vw, 3rem);
+    }
+
+    .testimonials__note {
+      margin-top: var(--space-3);
+      font-size: var(--text-sm);
+      color: color-mix(in srgb, var(--sand) 45%, var(--bg));
+      max-width: 48ch;
     }
 
     .testimonials__grid {
@@ -1245,7 +1406,7 @@
 
     @media (max-width: 960px) {
       .testimonials__grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1253,6 +1414,28 @@
       .testimonials__grid {
         grid-template-columns: 1fr;
       }
+    }
+
+    .contact__helplines {
+      margin-top: var(--space-3);
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .contact__helplines li {
+      font-size: var(--text-sm);
+      color: var(--ink-soft);
+    }
+
+    .site-footer__crisis .contact__helplines {
+      margin-top: var(--space-3);
+    }
+
+    .site-footer__crisis .contact__helplines li {
+      color: var(--ink-soft);
     }
 
     /* ==========================================================================
@@ -1741,6 +1924,12 @@
       border-bottom: 1px solid var(--border-subtle);
     }
 
+    .site-footer__crisis p {
+      color: var(--ink-soft);
+      max-width: none;
+      margin: 0;
+    }
+
     .site-footer__crisis a {
       color: var(--sage-deep);
       font-weight: var(--weight-medium);
@@ -1799,7 +1988,7 @@
   <header class="site-header">
     <div class="site-header__inner">
       <a class="logo" href="#top">
-        <span class="logo__mark" aria-hidden="true"></span>
+        <img class="logo__img" src="logo.png" alt="The Mindful Room Logo" width="30" height="30">
         <span class="logo__text">The Mindful Room</span>
       </a>
 
@@ -1823,10 +2012,12 @@
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#how-it-works">How it works</a></li>
-          <li><a href="#therapists">Therapists</a></li>
+          <li><a href="#about-me">About Me</a></li>
+          <li><a href="#instagram">Instagram</a></li>
+          <li><a href="#blog">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
           <li class="site-nav__cta">
-            <a class="btn-primary" href="#book">Book a session</a>
+            <a class="btn-primary js-google-form" href="#" target="_blank" rel="noopener noreferrer">Book a session</a>
           </li>
         </ul>
       </nav>
@@ -1837,28 +2028,28 @@
     <section class="hero" aria-labelledby="hero-heading">
       <div class="hero__inner">
         <div class="hero__content">
-          <p class="hero__eyebrow">Clinical therapy · online or in person</p>
+          <p class="hero__eyebrow">Individual counselling · online or in person</p>
 
           <h1 class="hero__title" id="hero-heading">
-            A quiet room,<br>
-            <em>however</em> you arrive.
+            You don’t need a crisis to seek help.
           </h1>
 
           <p class="hero__lead">
-            Thoughtful, evidence-based care in a space that slows the pace—
-            so you can speak freely, feel steadier, and move forward with clarity.
+            The Mindful Room is for young adults navigating life’s transitions—job loss, breakups, new relationships, parenting, marriage, anxiety, and any other life shift. This is a space for you, exactly as you are.
           </p>
 
+          <p class="hero__subline">Because this counts too.</p>
+
           <div class="hero__actions">
-            <a class="btn-primary" href="#book">Book your first session</a>
-            <a class="btn-secondary" href="#how-it-works">See how we work</a>
+            <a class="btn-ghost js-google-form" href="#">📋 Fill the booking form</a>
             <a
               class="btn-ghost js-whatsapp-link"
               href="https://wa.me/919158996211?text=Hi%20I'd%20like%20to%20book%20a%20session"
               target="_blank"
               rel="noopener noreferrer"
               data-wa-text="Hi I'd like to book a session"
-            >Book via WhatsApp</a>
+            ><svg class="wa-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.015-.497-.066-.126-.558-1.35-.764-1.85-.197-.453-.398-.396-.548-.396-.172 0-.372.022-.563.022-.197 0-.523.075-.795.347-.272.272-.957.965-.957 2.354 0 1.39 1.047 2.735 1.193 2.915.146.18 2.1 3.2 5.08 4.49.7.29 1.28.47 1.72.6.72.24 1.36.18 1.87.1.51-.08 1.75-.7 2-1.37.25-.67.25-1.35.17-1.37-.07-.02-.27-.15-.57-.3z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.517 3.66 1.415 5.173L2.18 21.82l4.647-1.235C8.34 21.482 10.11 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.74 0-3.36-.51-4.76-1.38l-.34-.2-2.88.77.76-2.85-.22-.36C3.51 15.36 3 13.74 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/></svg> Book via WhatsApp</a>
+            <a class="btn-secondary" href="#how-it-works">See how we work</a>
           </div>
 
           <ul class="hero__meta">
@@ -1897,11 +2088,11 @@
 
         <div class="hero__visual">
           <div class="breathing-orb" aria-hidden="true">
-            <div class="orb o1" id="orb-outer">
+            <div class="orb o1">
               <div class="orb o2">
                 <div class="orb o3">
                   <div class="orb o4">
-                    <span class="orb__label" id="orb-label">Breathe in</span>
+                    <span class="orb__label">breathe</span>
                   </div>
                 </div>
               </div>
@@ -1939,73 +2130,53 @@
     <section class="section services" id="services" aria-labelledby="services-heading">
       <div class="section__inner">
         <header class="services__header">
-          <p class="section-eyebrow">Services</p>
-          <h2 class="section-title" id="services-heading">Support shaped to how you live.</h2>
+          <p class="section-eyebrow">Individual counselling</p>
+          <h2 class="section-title" id="services-heading">Areas I work with.</h2>
           <p class="services__intro">
-            Individual and relational care across formats—so treatment fits your
-            week, not the other way around.
+            One-to-one support for young adults—paced carefully, grounded in evidence,
+            and held without judgement.
           </p>
         </header>
 
         <div class="services__grid">
           <article class="service-card">
             <span class="service-card__icon" aria-hidden="true">◐</span>
-            <h3 class="service-card__title">Individual therapy</h3>
+            <h3 class="service-card__title">Anxiety &amp; Panic</h3>
             <p class="service-card__desc">
-              One-to-one sessions for anxiety, low mood, life transitions, and the
-              quieter patterns that keep repeating.
+              Support for racing thoughts, worry loops, and panic—so your nervous
+              system can settle enough to think clearly again.
             </p>
-            <span class="format-tag">Online or in-person</span>
+            <span class="format-tag">Individual</span>
           </article>
 
           <article class="service-card">
             <span class="service-card__icon" aria-hidden="true">◑</span>
-            <h3 class="service-card__title">Couples &amp; relationships</h3>
+            <h3 class="service-card__title">Low Mood &amp; Depression</h3>
             <p class="service-card__desc">
-              A steadier space to untangle conflict, rebuild trust, and practice
-              speaking without performing.
+              Gentle, structured care when energy dips, motivation fades, or days
+              feel heavier than they used to.
             </p>
-            <span class="format-tag">In-person</span>
+            <span class="format-tag">Individual</span>
           </article>
 
           <article class="service-card">
             <span class="service-card__icon" aria-hidden="true">◒</span>
-            <h3 class="service-card__title">Anxiety &amp; panic</h3>
+            <h3 class="service-card__title">Relationship Concerns</h3>
             <p class="service-card__desc">
-              Practical tools grounded in CBT and somatic awareness—paced so your
-              body can catch up with your mind.
+              Space to untangle patterns in dating, friendships, family, or
+              partnership—without needing a “perfect” story.
             </p>
-            <span class="format-tag">Online</span>
+            <span class="format-tag">Individual</span>
           </article>
 
           <article class="service-card">
             <span class="service-card__icon" aria-hidden="true">◓</span>
-            <h3 class="service-card__title">Trauma-informed care</h3>
+            <h3 class="service-card__title">Stress &amp; Burnout Support</h3>
             <p class="service-card__desc">
-              Careful, consent-led work that respects windows of tolerance and
-              never asks you to outrun safety.
+              For high-pressure seasons at work, studies, or home—boundaries,
+              recovery rhythms, and meaning beyond constant output.
             </p>
-            <span class="format-tag">Hybrid</span>
-          </article>
-
-          <article class="service-card">
-            <span class="service-card__icon" aria-hidden="true">◔</span>
-            <h3 class="service-card__title">Burnout &amp; work stress</h3>
-            <p class="service-card__desc">
-              For high-responsibility lives: boundaries, recovery rhythms, and
-              meaning that isn’t only productivity.
-            </p>
-            <span class="format-tag">Online</span>
-          </article>
-
-          <article class="service-card">
-            <span class="service-card__icon" aria-hidden="true">◕</span>
-            <h3 class="service-card__title">Adolescent support</h3>
-            <p class="service-card__desc">
-              Age-attuned sessions for teens navigating identity, school pressure,
-              and family change—with caregiver involvement as needed.
-            </p>
-            <span class="format-tag">In-person</span>
+            <span class="format-tag">Individual</span>
           </article>
         </div>
       </div>
@@ -2021,131 +2192,138 @@
         <ol class="how__grid">
           <li class="how-step">
             <span class="how-step__num" aria-hidden="true">01</span>
-            <h3 class="how-step__title">Share what brings you</h3>
+            <h3 class="how-step__title">Book a 15-min free discovery call</h3>
             <p class="how-step__desc">
-              A short intake helps us understand your goals, timing, and whether
-              online or in-person fits best.
+              Find out more about therapy and see if we are a good fit.
             </p>
           </li>
           <li class="how-step">
             <span class="how-step__num" aria-hidden="true">02</span>
-            <h3 class="how-step__title">Meet your match</h3>
+            <h3 class="how-step__title">Fill out the booking form</h3>
             <p class="how-step__desc">
-              We pair you with a licensed clinician whose approach and availability
-              align with what you need.
+              Share a few details about what you’re navigating.
             </p>
           </li>
           <li class="how-step">
             <span class="how-step__num" aria-hidden="true">03</span>
-            <h3 class="how-step__title">Begin at your pace</h3>
+            <h3 class="how-step__title">Attend your first session</h3>
             <p class="how-step__desc">
-              Your first sessions establish safety, clarity, and a plan you can
-              actually live with—not a script.
+              We’ll work together at your pace.
             </p>
           </li>
           <li class="how-step">
             <span class="how-step__num" aria-hidden="true">04</span>
-            <h3 class="how-step__title">Continue or close well</h3>
+            <h3 class="how-step__title">Ongoing support</h3>
             <p class="how-step__desc">
-              Care evolves with you. When it’s time to pause or finish, we close
-              with intention—not abrupt endings.
+              After termination, we offer continued check-ins and resources.
             </p>
           </li>
         </ol>
       </div>
     </section>
 
-    <section class="section therapists" id="therapists" aria-labelledby="therapists-heading">
-      <div class="section__inner">
-        <header class="therapists__header">
-          <p class="section-eyebrow">Therapists</p>
-          <h2 class="section-title" id="therapists-heading">Clinicians who listen closely.</h2>
-          <p class="therapists__intro">
-            Licensed practitioners with varied specialties—matched thoughtfully,
-            never randomly assigned.
+    <section class="section about-me" id="about-me" aria-labelledby="about-me-heading">
+      <div class="section__inner about-me__grid">
+        <div class="about-me__photo">
+          <img src="avatar.jpg" alt="Counsellor at The Mindful Room">
+        </div>
+
+        <div class="about-me__copy">
+          <div>
+            <p class="section-eyebrow">About Me</p>
+            <h2 class="section-title" id="about-me-heading">A room held with care.</h2>
+            <p class="about-me__creds" style="margin-top: 0.75rem;">Licensed counsellor · Young adults</p>
+          </div>
+
+          <p>
+            Hi, I’m [Name]. I am a licensed counsellor dedicated to helping young adults
+            find clarity in the chaos—career pivots, breakups, new relationships, parenting,
+            marriage, anxiety, and the quieter questions that don’t always look like a crisis.
           </p>
+          <p>
+            Sessions are paced to your nervous system, with room for both evidence-based tools
+            and the human messiness of being in transition.
+          </p>
+
+          <ul class="approach-tags" aria-label="Approach">
+            <li>Confidential</li>
+            <li>Non-judgemental</li>
+            <li>Safe</li>
+            <li>Scientifically backed</li>
+            <li>Verified</li>
+          </ul>
+
+          <blockquote class="about-me__quote">
+            <p>“You don’t have to tidy your feelings before you arrive.”</p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section instagram" id="instagram" aria-labelledby="instagram-heading">
+      <div class="section__inner instagram__inner">
+        <p class="section-eyebrow">Instagram</p>
+        <h2 class="section-title" id="instagram-heading">Journal &amp; Moments</h2>
+        <p class="instagram__intro">
+          Short reflections, grounding prompts, and reminders that ordinary life
+          deserves care—shared gently on Instagram.
+        </p>
+
+        <ul class="instagram__grid" aria-hidden="true">
+          <li class="instagram__thumb"><span class="instagram__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></li>
+          <li class="instagram__thumb"><span class="instagram__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></li>
+          <li class="instagram__thumb"><span class="instagram__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></li>
+          <li class="instagram__thumb"><span class="instagram__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></li>
+        </ul>
+
+        <p>
+          <a class="btn-ghost js-instagram" href="#" target="_blank" rel="noopener noreferrer">Follow me on Instagram @[username]</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="section blog" id="blog" aria-labelledby="blog-heading">
+      <div class="section__inner">
+        <header class="blog__header">
+          <div>
+            <p class="section-eyebrow">Blog</p>
+            <h2 class="section-title" id="blog-heading">Articles &amp; reflections.</h2>
+          </div>
+          <a class="btn-secondary js-blog" href="#" target="_blank" rel="noopener noreferrer">Visit my blog</a>
         </header>
 
-        <div class="therapists__grid">
-          <article class="therapist-card">
-            <div class="therapist-card__avatar" aria-hidden="true">
-              <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" focusable="false">
-                <defs>
-                  <linearGradient id="av1" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stop-color="#6B7F5E"/>
-                    <stop offset="100%" stop-color="#586c79"/>
-                  </linearGradient>
-                </defs>
-                <circle cx="48" cy="48" r="48" fill="url(#av1)"/>
-                <circle cx="48" cy="38" r="16" fill="#F0EFE6" opacity="0.85"/>
-                <ellipse cx="48" cy="78" rx="26" ry="20" fill="#F0EFE6" opacity="0.85"/>
-              </svg>
-            </div>
-            <div>
-              <h3 class="therapist-card__name">Amara Okonkwo</h3>
-              <p class="therapist-card__creds">LCSW · Anxiety &amp; trauma</p>
-            </div>
-            <p class="therapist-card__bio">
-              Warm, structured care for people who feel “fine” until they aren’t—
-              with room for both evidence and emotion.
-            </p>
-          </article>
-
-          <article class="therapist-card">
-            <div class="therapist-card__avatar" aria-hidden="true">
-              <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" focusable="false">
-                <defs>
-                  <linearGradient id="av2" x1="100%" y1="0%" x2="0%" y2="100%">
-                    <stop offset="0%" stop-color="#C9A876"/>
-                    <stop offset="100%" stop-color="#4B5C40"/>
-                  </linearGradient>
-                </defs>
-                <circle cx="48" cy="48" r="48" fill="url(#av2)"/>
-                <circle cx="48" cy="38" r="16" fill="#F0EFE6" opacity="0.85"/>
-                <ellipse cx="48" cy="78" rx="26" ry="20" fill="#F0EFE6" opacity="0.85"/>
-              </svg>
-            </div>
-            <div>
-              <h3 class="therapist-card__name">Julian Park</h3>
-              <p class="therapist-card__creds">PhD · CBT &amp; burnout</p>
-            </div>
-            <p class="therapist-card__bio">
-              Clear-eyed support for high-responsibility lives—boundaries, recovery
-              rhythms, and meaning beyond output.
-            </p>
-          </article>
-
-          <article class="therapist-card">
-            <div class="therapist-card__avatar" aria-hidden="true">
-              <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" focusable="false">
-                <defs>
-                  <linearGradient id="av3" x1="0%" y1="100%" x2="100%" y2="0%">
-                    <stop offset="0%" stop-color="#586c79"/>
-                    <stop offset="100%" stop-color="#B4915E"/>
-                  </linearGradient>
-                </defs>
-                <circle cx="48" cy="48" r="48" fill="url(#av3)"/>
-                <circle cx="48" cy="38" r="16" fill="#F0EFE6" opacity="0.85"/>
-                <ellipse cx="48" cy="78" rx="26" ry="20" fill="#F0EFE6" opacity="0.85"/>
-              </svg>
-            </div>
-            <div>
-              <h3 class="therapist-card__name">Elena Ruiz</h3>
-              <p class="therapist-card__creds">LMFT · Relationships</p>
-            </div>
-            <p class="therapist-card__bio">
-              Steady couple and family work that slows conflict and rebuilds the
-              ability to speak without performing.
-            </p>
-          </article>
-        </div>
-
-        <div class="therapists__footer">
-          <a class="therapists__footer-link" href="#contact">
-            Meet our full team
-            <span aria-hidden="true">→</span>
-          </a>
-        </div>
+        <ul class="blog__list">
+          <li>
+            <article class="blog-card">
+              <h3 class="blog-card__title">Navigating Anxiety in Uncertain Times</h3>
+              <p class="blog-card__excerpt">
+                Small, body-first practices when the future feels foggy—and why
+                waiting for “certainty” can keep anxiety in charge.
+              </p>
+              <a class="blog-card__link js-blog" href="#">Read more</a>
+            </article>
+          </li>
+          <li>
+            <article class="blog-card">
+              <h3 class="blog-card__title">Breakups and Self-Compassion</h3>
+              <p class="blog-card__excerpt">
+                Grief, identity, and the quiet work of rebuilding a life that
+                isn’t defined only by who left.
+              </p>
+              <a class="blog-card__link js-blog" href="#">Read more</a>
+            </article>
+          </li>
+          <li>
+            <article class="blog-card">
+              <h3 class="blog-card__title">Why You Don’t Need a Crisis to Seek Therapy</h3>
+              <p class="blog-card__excerpt">
+                Why seeking support during life transitions is a form of care—
+                not a last resort.
+              </p>
+              <a class="blog-card__link js-blog" href="#">Read more</a>
+            </article>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -2154,35 +2332,34 @@
         <header class="testimonials__header">
           <p class="section-eyebrow">Testimonials</p>
           <h2 class="section-title" id="testimonials-heading">Words from the room.</h2>
+          <p class="testimonials__note">
+            Testimonials are shared with full confidentiality—available upon request.
+          </p>
         </header>
 
         <div class="testimonials__grid">
           <figure class="testimonial-card">
             <blockquote class="testimonial-card__quote">
-              “I finally felt like I didn’t have to tidy my feelings before speaking.
-              The pace was humane—and somehow still rigorous.”
+              “I felt truly heard and understood for the first time.”
             </blockquote>
-            <figcaption class="testimonial-card__who">— Mira S. · Individual therapy</figcaption>
           </figure>
 
           <figure class="testimonial-card">
             <blockquote class="testimonial-card__quote">
-              “Online sessions felt as held as in-person. We built tools I still use
-              on hard Tuesdays—not just insight for the hour.”
+              “The pace was humane. I left with tools I still use on hard weeks.”
             </blockquote>
-            <figcaption class="testimonial-card__who">— Devon K. · Anxiety support</figcaption>
           </figure>
 
           <figure class="testimonial-card">
             <blockquote class="testimonial-card__quote">
-              “As a couple, we stopped rehearsing arguments and started noticing each
-              other again. Quiet care. Real change.”
+              “It helped to know I didn’t need a crisis to deserve a safe space.”
             </blockquote>
-            <figcaption class="testimonial-card__who">— Jordan &amp; Lea · Couples</figcaption>
           </figure>
         </div>
       </div>
     </section>
+
+
 
     <section class="section contact" id="contact" aria-labelledby="contact-heading">
       <div class="section__inner">
@@ -2230,20 +2407,30 @@
               <p class="contact__value">
                 <a
                   class="js-whatsapp-link js-whatsapp-display"
-                  href="https://wa.me/91XXXXXXXXXX"
+                  href="https://wa.me/919158996211"
                   target="_blank"
                   rel="noopener noreferrer"
-                >+91 XXXXX XXXXX</a>
+                >+91 91589 96211</a>
+              </p>
+            </div>
+
+            <div class="contact__block">
+              <p class="contact__label">Booking form</p>
+              <p class="contact__value">
+                <a class="js-google-form" href="#" target="_blank" rel="noopener noreferrer">Fill the booking form</a>
               </p>
             </div>
 
             <div class="contact__crisis">
               <p class="contact__crisis-title">Crisis note</p>
               <p>
-                If you are in immediate danger, call emergency services. In the U.S.,
-                you can also dial or text <a href="tel:988">988</a> for the Suicide &amp;
-                Crisis Lifeline—available 24/7.
+                If you are in crisis, please call one of these Indian helplines immediately:
               </p>
+              <ul class="contact__helplines">
+                <li>iCall — <a href="tel:+912225521111">022-25521111</a></li>
+                <li>Vandrevala Foundation — <a href="tel:18602662345">1860-266-2345</a></li>
+                <li>AASRA — <a href="tel:+912227546669">91-22-27546669</a></li>
+              </ul>
             </div>
           </aside>
 
@@ -2339,7 +2526,7 @@
     <div class="site-footer__inner">
       <div class="site-footer__top">
         <a class="logo" href="#top">
-          <span class="logo__mark" aria-hidden="true"></span>
+          <img class="logo__img" src="logo.png" alt="The Mindful Room Logo" width="30" height="30">
           <span class="logo__text">The Mindful Room</span>
         </a>
 
@@ -2348,18 +2535,26 @@
             <li><a href="#about">About</a></li>
             <li><a href="#services">Services</a></li>
             <li><a href="#how-it-works">How it works</a></li>
-            <li><a href="#therapists">Therapists</a></li>
+            <li><a href="#about-me">About Me</a></li>
+            <li><a href="#instagram">Instagram</a></li>
+            <li><a href="#blog">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a href="#book">Book a session</a></li>
+            <li><a class="js-google-form" href="#" target="_blank" rel="noopener noreferrer">Book a session</a></li>
           </ul>
         </nav>
       </div>
 
-      <p class="site-footer__crisis">
-        If you are in crisis or thinking about harming yourself, call emergency services
-        or contact the Suicide &amp; Crisis Lifeline at <a href="tel:988">988</a> (U.S., 24/7).
-        This website is not a substitute for emergency care.
-      </p>
+      <div class="site-footer__crisis">
+        <p>
+          If you are in crisis, please call one of these Indian helplines immediately.
+          This website is not a substitute for emergency care.
+        </p>
+        <ul class="contact__helplines">
+          <li>iCall — <a href="tel:+912225521111">022-25521111</a></li>
+          <li>Vandrevala Foundation — <a href="tel:18602662345">1860-266-2345</a></li>
+          <li>AASRA — <a href="tel:+912227546669">91-22-27546669</a></li>
+        </ul>
+      </div>
 
       <div class="site-footer__bottom">
         <p class="site-footer__copy">
@@ -2375,18 +2570,21 @@
 
   <a
     class="whatsapp-fab js-whatsapp-link"
-    href="https://wa.me/91XXXXXXXXXX?text=Hi%20I'd%20like%20to%20book%20a%20session"
+    href="https://wa.me/919158996211?text=Hi%20I'd%20like%20to%20book%20a%20session"
     target="_blank"
     rel="noopener noreferrer"
     data-wa-text="Hi I'd like to book a session"
     aria-label="Book via WhatsApp"
   >
-    <span aria-hidden="true">📱</span>
+    <svg class="wa-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.015-.497-.066-.126-.558-1.35-.764-1.85-.197-.453-.398-.396-.548-.396-.172 0-.372.022-.563.022-.197 0-.523.075-.795.347-.272.272-.957.965-.957 2.354 0 1.39 1.047 2.735 1.193 2.915.146.18 2.1 3.2 5.08 4.49.7.29 1.28.47 1.72.6.72.24 1.36.18 1.87.1.51-.08 1.75-.7 2-1.37.25-.67.25-1.35.17-1.37-.07-.02-.27-.15-.57-.3z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.517 3.66 1.415 5.173L2.18 21.82l4.647-1.235C8.34 21.482 10.11 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.74 0-3.36-.51-4.76-1.38l-.34-.2-2.88.77.76-2.85-.22-.36C3.51 15.36 3 13.74 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/></svg>
     <span class="whatsapp-fab__text">Book via WhatsApp</span>
   </a>
 
   <script>
-    const WHATSAPP_NUMBER = "+91XXXXXXXXXX";
+    const WHATSAPP_NUMBER = "+919158996211";
+    const GOOGLE_FORM_URL = "#";
+    const INSTAGRAM_URL = "#";
+    const BLOG_URL = "#";
   </script>
 
   <script>
@@ -2416,6 +2614,18 @@
 
       document.querySelectorAll(".js-whatsapp-display").forEach(function (link) {
         link.textContent = formatWhatsAppDisplay(WHATSAPP_NUMBER);
+      });
+
+      document.querySelectorAll(".js-google-form").forEach(function (link) {
+        link.href = GOOGLE_FORM_URL;
+      });
+
+      document.querySelectorAll(".js-instagram").forEach(function (link) {
+        link.href = INSTAGRAM_URL;
+      });
+
+      document.querySelectorAll(".js-blog").forEach(function (link) {
+        link.href = BLOG_URL;
       });
 
       window.MindfulRoomWhatsApp = {
@@ -2540,40 +2750,6 @@
       }
     })();
 
-    (function () {
-      const outerOrb = document.getElementById("orb-outer");
-      const label = document.getElementById("orb-label");
-      if (!outerOrb || !label) return;
-
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-      let inhaling = true;
-
-      function setLabel(isInhaling) {
-        label.textContent = isInhaling ? "Breathe in" : "Breathe out";
-      }
-
-      function syncFromMotionPreference() {
-        if (reduceMotion.matches) {
-          setLabel(true);
-          return;
-        }
-        setLabel(inhaling);
-      }
-
-      outerOrb.addEventListener("animationiteration", function () {
-        if (reduceMotion.matches) return;
-        inhaling = !inhaling;
-        setLabel(inhaling);
-      });
-
-      syncFromMotionPreference();
-
-      if (typeof reduceMotion.addEventListener === "function") {
-        reduceMotion.addEventListener("change", syncFromMotionPreference);
-      } else if (typeof reduceMotion.addListener === "function") {
-        reduceMotion.addListener(syncFromMotionPreference);
-      }
-    })();
 
     (function () {
       const form = document.getElementById("book");
