@@ -271,6 +271,7 @@
       .site-nav a,
       .btn-primary,
       .btn-secondary,
+      .btn-ghost,
       .service-card,
       .service-card__icon {
         transition: none;
@@ -361,6 +362,38 @@
 
     .btn-secondary:active {
       background-color: color-mix(in srgb, var(--bg-alt) 70%, var(--sage) 30%);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: 0.65rem 1.25rem;
+      border: 1px solid color-mix(in srgb, #25D366 45%, var(--ink) 10%);
+      border-radius: var(--radius-sm);
+      background-color: color-mix(in srgb, #25D366 10%, var(--bg));
+      color: #1b7a3d;
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      white-space: nowrap;
+      will-change: transform;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-ghost:hover {
+      background-color: color-mix(in srgb, #25D366 18%, var(--bg));
+      border-color: #25D366;
+      color: #146330;
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost:active {
+      background-color: color-mix(in srgb, #25D366 24%, var(--bg));
     }
 
     /* ==========================================================================
@@ -1505,15 +1538,16 @@
     .toast {
       position: fixed;
       right: var(--gutter);
-      bottom: var(--space-5);
+      bottom: 5.75rem;
       z-index: 1100;
       display: flex;
       align-items: flex-start;
       gap: var(--space-3);
       max-width: min(24rem, calc(100vw - 2 * var(--gutter)));
       padding: var(--space-4) var(--space-5);
-      background-color: var(--sage-deep);
-      color: var(--bg);
+      background-color: var(--bg-alt);
+      color: var(--ink);
+      border-left: 4px solid var(--sage-deep);
       border-radius: var(--radius-md);
       box-shadow: var(--shadow-md);
       transform: translateY(120%);
@@ -1531,9 +1565,20 @@
     .toast__message {
       font-size: var(--text-sm);
       line-height: var(--leading-snug);
-      color: var(--bg);
+      color: var(--ink);
       max-width: none;
       margin: 0;
+    }
+
+    .toast__message a {
+      color: var(--sage-deep);
+      font-weight: var(--weight-medium);
+      text-decoration: underline;
+      text-underline-offset: 0.12em;
+    }
+
+    .toast__message a:hover {
+      color: var(--sage);
     }
 
     .toast__close {
@@ -1544,7 +1589,7 @@
       border: 0;
       border-radius: var(--radius-sm);
       background: transparent;
-      color: var(--bg);
+      color: var(--ink-soft);
       font-size: 1.25rem;
       line-height: 1;
       opacity: 0.85;
@@ -1552,12 +1597,68 @@
 
     .toast__close:hover {
       opacity: 1;
-      background-color: color-mix(in srgb, var(--bg) 12%, transparent);
+      background-color: color-mix(in srgb, var(--ink) 8%, transparent);
+      color: var(--ink);
+    }
+
+    .whatsapp-fab {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 99;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 50px;
+      background: #25D366;
+      color: #fff;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: var(--shadow-md);
+      will-change: transform;
+      transition: transform 0.2s ease, background-color 0.2s ease;
+    }
+
+    .whatsapp-fab:hover {
+      color: #fff;
+      background: #1ebe57;
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 560px) {
+      .whatsapp-fab__text {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .whatsapp-fab {
+        width: 3.25rem;
+        height: 3.25rem;
+        padding: 0;
+        border-radius: 50%;
+        justify-content: center;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .toast {
+      .toast,
+      .whatsapp-fab,
+      .btn-ghost {
         transition: none;
+      }
+
+      .whatsapp-fab:hover,
+      .btn-ghost:hover {
+        transform: none;
       }
     }
 
@@ -1751,6 +1852,13 @@
           <div class="hero__actions">
             <a class="btn-primary" href="#book">Book your first session</a>
             <a class="btn-secondary" href="#how-it-works">See how we work</a>
+            <a
+              class="btn-ghost js-whatsapp-link"
+              href="https://wa.me/919158996211?text=Hi%20I'd%20like%20to%20book%20a%20session"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-wa-text="Hi I'd like to book a session"
+            >Book via WhatsApp</a>
           </div>
 
           <ul class="hero__meta">
@@ -2117,6 +2225,18 @@
               </p>
             </div>
 
+            <div class="contact__block">
+              <p class="contact__label">WhatsApp</p>
+              <p class="contact__value">
+                <a
+                  class="js-whatsapp-link js-whatsapp-display"
+                  href="https://wa.me/91XXXXXXXXXX"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >+91 XXXXX XXXXX</a>
+              </p>
+            </div>
+
             <div class="contact__crisis">
               <p class="contact__crisis-title">Crisis note</p>
               <p>
@@ -2201,19 +2321,19 @@
         </div>
       </div>
     </section>
-  </main>
 
-  <div
-    class="toast"
-    id="toast"
-    role="status"
-    aria-live="polite"
-    aria-atomic="true"
-    hidden
-  >
-    <p class="toast__message" id="toast-message"></p>
-    <button class="toast__close" type="button" aria-label="Dismiss notification">&times;</button>
-  </div>
+    <div
+      class="toast"
+      id="toast"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+      hidden
+    >
+      <div class="toast__message" id="toast-message"></div>
+      <button class="toast__close" id="toast-close" type="button" aria-label="Dismiss notification">✕</button>
+    </div>
+  </main>
 
   <footer class="site-footer">
     <div class="site-footer__inner">
@@ -2253,7 +2373,57 @@
     </div>
   </footer>
 
+  <a
+    class="whatsapp-fab js-whatsapp-link"
+    href="https://wa.me/91XXXXXXXXXX?text=Hi%20I'd%20like%20to%20book%20a%20session"
+    target="_blank"
+    rel="noopener noreferrer"
+    data-wa-text="Hi I'd like to book a session"
+    aria-label="Book via WhatsApp"
+  >
+    <span aria-hidden="true">📱</span>
+    <span class="whatsapp-fab__text">Book via WhatsApp</span>
+  </a>
+
   <script>
+    const WHATSAPP_NUMBER = "+91XXXXXXXXXX";
+  </script>
+
+  <script>
+    (function () {
+      function whatsappDigits(number) {
+        return String(number || "").replace(/\D/g, "");
+      }
+
+      function formatWhatsAppDisplay(number) {
+        const digits = whatsappDigits(number);
+        if (digits.length < 10) return number;
+        const local = digits.slice(-10);
+        const country = digits.slice(0, -10) || "91";
+        return "+" + country + " " + local.slice(0, 5) + " " + local.slice(5);
+      }
+
+      function buildWhatsAppUrl(text) {
+        const base = "https://wa.me/" + whatsappDigits(WHATSAPP_NUMBER);
+        if (!text) return base;
+        return base + "?text=" + encodeURIComponent(text);
+      }
+
+      document.querySelectorAll(".js-whatsapp-link").forEach(function (link) {
+        const preset = link.getAttribute("data-wa-text");
+        link.href = buildWhatsAppUrl(preset || "");
+      });
+
+      document.querySelectorAll(".js-whatsapp-display").forEach(function (link) {
+        link.textContent = formatWhatsAppDisplay(WHATSAPP_NUMBER);
+      });
+
+      window.MindfulRoomWhatsApp = {
+        buildUrl: buildWhatsAppUrl,
+        digits: whatsappDigits
+      };
+    })();
+
     (function () {
       const toggle = document.getElementById("nav-toggle");
       const nav = document.getElementById("primary-nav");
@@ -2414,7 +2584,7 @@
       const status = document.getElementById("form-status");
       const toast = document.getElementById("toast");
       const toastMessage = document.getElementById("toast-message");
-      const toastClose = toast ? toast.querySelector(".toast__close") : null;
+      const toastClose = document.getElementById("toast-close");
       if (!submitBtn || !btnLabel || !status || !toast || !toastMessage) return;
 
       const idleLabel = btnLabel.textContent;
@@ -2434,25 +2604,29 @@
       function hideToast() {
         toast.classList.remove("is-visible");
         toast.hidden = true;
+        toast.style.display = "none";
         if (toastTimer) {
           window.clearTimeout(toastTimer);
           toastTimer = null;
         }
       }
 
-      function showToast(message) {
-        toastMessage.textContent = message;
+      function showToastHtml(html) {
+        toastMessage.innerHTML = html;
         toast.hidden = false;
+        toast.style.display = "flex";
         requestAnimationFrame(function () {
           toast.classList.add("is-visible");
         });
 
         if (toastTimer) window.clearTimeout(toastTimer);
-        toastTimer = window.setTimeout(hideToast, 5600);
+        toastTimer = window.setTimeout(hideToast, 12000);
       }
 
       if (toastClose) {
-        toastClose.addEventListener("click", hideToast);
+        toastClose.addEventListener("click", function () {
+          hideToast();
+        });
       }
 
       form.addEventListener("submit", function (event) {
@@ -2464,48 +2638,48 @@
           return;
         }
 
+        const name = (form.elements.namedItem("name") || {}).value || "";
+        const email = (form.elements.namedItem("email") || {}).value || "";
+        const message = (form.elements.namedItem("message") || {}).value || "";
+        const formatInput = form.querySelector('input[name="format"]:checked');
+        const format = formatInput ? formatInput.value : "Either";
+
         setLoading(true);
 
-        fetch(form.action, {
-          method: "POST",
-          body: new FormData(form),
-          headers: {
-            Accept: "application/json"
-          }
-        })
-          .then(function (response) {
-            if (response.ok) {
-              form.reset();
-              const online = form.querySelector("#format-online");
-              if (online) online.checked = true;
-              showToast("Thank you — we’ll be in touch soon.");
-              return;
-            }
+        // Optional Formspree backend — keep ready, currently simulating success.
+        // fetch(form.action, {
+        //   method: "POST",
+        //   body: new FormData(form),
+        //   headers: { Accept: "application/json" }
+        // })
 
-            return response
-              .json()
-              .catch(function () {
-                return null;
-              })
-              .then(function (data) {
-                const message =
-                  (data &&
-                    data.errors &&
-                    data.errors
-                      .map(function (err) {
-                        return err.message;
-                      })
-                      .join(" ")) ||
-                  "Something went wrong. Please try again or email us directly.";
-                throw new Error(message);
-              });
-          })
-          .catch(function (error) {
-            setError(
-              error && error.message
-                ? error.message
-                : "Something went wrong. Please try again or email us directly."
+        Promise.resolve()
+          .then(function () {
+            const waText =
+              "New appointment request from " +
+              name.trim() +
+              " (" +
+              email.trim() +
+              ")\n\nFormat: " +
+              format +
+              "\nMessage: " +
+              (message.trim() || "(none provided)");
+
+            const waUrl = window.MindfulRoomWhatsApp.buildUrl(waText);
+
+            form.reset();
+            const online = form.querySelector("#format-online");
+            if (online) online.checked = true;
+
+            showToastHtml(
+              "Thanks — your request is ready. " +
+                '<a href="' +
+                waUrl +
+                '" target="_blank" rel="noopener noreferrer">Open WhatsApp to send it</a>.'
             );
+          })
+          .catch(function () {
+            setError("Something went wrong. Please try again or message us on WhatsApp.");
           })
           .finally(function () {
             setLoading(false);
