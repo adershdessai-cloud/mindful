@@ -1,0 +1,2535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Mindful Room | Clinical therapy, online or in person</title>
+  <meta name="description" content="The Mindful Room offers calm, grounded therapy in a space designed for presence, healing, and gentle self-discovery.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    rel="preload"
+    as="font"
+    type="font/woff2"
+    crossorigin
+    href="https://fonts.gstatic.com/s/fraunces/v38/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeA.woff2"
+  >
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,600&display=swap"
+  >
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,450;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       Design System — The Mindful Room
+       ========================================================================== */
+
+    :root {
+      /* Colors */
+      --bg: #F0EFE6;
+      --bg-alt: #E8E4D4;
+      --ink: #1F2E23;
+      --ink-soft: #43524a;
+      --sage: #6B7F5E;
+      --sage-deep: #4B5C40;
+      --sand: #C9A876;
+      --sand-deep: #B4915E;
+      --dusk: #586c79;
+
+      /* Typography */
+      --font-display: "Fraunces", Georgia, serif;
+      --font-body: "Inter", system-ui, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+      --text-base: 1rem;
+      --text-sm: 0.875rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.25rem;
+      --text-2xl: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+      --text-3xl: clamp(1.875rem, 1.4rem + 2vw, 2.75rem);
+      --text-4xl: clamp(2.25rem, 1.6rem + 2.8vw, 3.5rem);
+
+      --leading-tight: 1.2;
+      --leading-snug: 1.35;
+      --leading-normal: 1.6;
+      --leading-relaxed: 1.75;
+
+      --weight-display: 450;
+      --weight-display-bold: 600;
+      --weight-body: 400;
+      --weight-medium: 500;
+
+      /* Spacing */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-7: 3rem;
+      --space-8: 4rem;
+      --space-9: 6rem;
+      --space-10: 8rem;
+
+      /* Layout */
+      --measure: 65ch;
+      --width-content: 1160px;
+      --width-narrow: 40rem;
+      --gutter: clamp(1rem, 4vw, 2.5rem);
+      --radius-sm: 0.25rem;
+      --radius-md: 0.5rem;
+      --radius-pill: 999px;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 2px color-mix(in srgb, var(--ink) 6%, transparent);
+      --shadow-md: 0 12px 28px color-mix(in srgb, var(--ink) 10%, transparent),
+        0 4px 10px color-mix(in srgb, var(--ink) 6%, transparent);
+
+      /* Borders */
+      --border-subtle: color-mix(in srgb, var(--ink) 12%, transparent);
+
+      /* Focus */
+      --focus-ring: 2px solid var(--sage-deep);
+      --focus-offset: 3px;
+    }
+
+    /* ==========================================================================
+       Reset & Global Base
+       ========================================================================== */
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    * {
+      margin: 0;
+    }
+
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow-x: hidden;
+      background-color: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: var(--weight-body);
+      line-height: var(--leading-normal);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-wrap: break-word;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: var(--font-display);
+      font-weight: var(--weight-display);
+      line-height: var(--leading-tight);
+      color: var(--ink);
+      text-wrap: balance;
+    }
+
+    h1 {
+      font-size: var(--text-4xl);
+      font-weight: var(--weight-display-bold);
+    }
+
+    h2 {
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-display-bold);
+    }
+
+    h3 {
+      font-size: var(--text-2xl);
+    }
+
+    h4 {
+      font-size: var(--text-xl);
+    }
+
+    p {
+      max-width: var(--measure);
+      line-height: var(--leading-relaxed);
+      color: var(--ink-soft);
+    }
+
+    a {
+      color: var(--sage-deep);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+    }
+
+    a:hover {
+      color: var(--sage);
+    }
+
+    img,
+    picture,
+    video,
+    canvas,
+    svg {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    code,
+    kbd,
+    samp,
+    pre,
+    .mono {
+      font-family: var(--font-mono);
+    }
+
+    /* Accessibility — clear keyboard focus */
+    :focus {
+      outline: none;
+    }
+
+    :focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-offset);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible,
+    summary:focus-visible,
+    [tabindex]:not([tabindex="-1"]):focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-offset);
+    }
+
+    main:focus {
+      outline: none;
+    }
+
+    main:focus-visible {
+      outline: none;
+    }
+
+    /* Skip link */
+    .skip-link {
+      position: absolute;
+      top: var(--space-3);
+      left: var(--space-3);
+      z-index: 1000;
+      padding: 0.65rem 1rem;
+      background-color: var(--sage-deep);
+      color: var(--bg);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transform: translateY(-160%);
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus,
+    .skip-link:focus-visible {
+      transform: translateY(0);
+      outline: 2px solid var(--bg);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .site-header,
+      .nav-toggle__bar,
+      .site-nav a,
+      .btn-primary,
+      .btn-secondary,
+      .service-card,
+      .service-card__icon {
+        transition: none;
+      }
+
+      .breathing-orb .orb {
+        animation: none !important;
+        transform: scale(1);
+      }
+
+      .service-card:hover {
+        transform: none;
+        box-shadow: none;
+      }
+
+      .service-card:hover .service-card__icon {
+        transform: none;
+      }
+
+      .btn-primary:hover,
+      .btn-secondary:hover {
+        transform: none;
+      }
+    }
+
+    /* ==========================================================================
+       Buttons
+       ========================================================================== */
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: 0.65rem 1.25rem;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      background-color: var(--sage-deep);
+      color: var(--bg);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      white-space: nowrap;
+      will-change: transform;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--sage);
+      color: var(--bg);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      background-color: var(--ink);
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      padding: 0.65rem 1.25rem;
+      border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+      border-radius: var(--radius-sm);
+      background-color: transparent;
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      line-height: 1.2;
+      letter-spacing: 0.01em;
+      text-decoration: none;
+      white-space: nowrap;
+      will-change: transform;
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-secondary:hover {
+      background-color: var(--bg-alt);
+      border-color: color-mix(in srgb, var(--ink) 28%, transparent);
+      color: var(--ink);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary:active {
+      background-color: color-mix(in srgb, var(--bg-alt) 70%, var(--sage) 30%);
+    }
+
+    /* ==========================================================================
+       Site Header & Navigation
+       ========================================================================== */
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background-color: color-mix(in srgb, var(--bg) 82%, transparent);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+    }
+
+    .site-header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      max-width: var(--width-content);
+      margin-inline: auto;
+      padding: var(--space-4) var(--gutter);
+      min-height: 4.25rem;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: 1.125rem;
+      font-weight: var(--weight-display-bold);
+      line-height: 1;
+      text-decoration: none;
+      letter-spacing: -0.01em;
+      flex-shrink: 0;
+    }
+
+    .logo:hover {
+      color: var(--ink);
+    }
+
+    .logo__mark {
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background-color: var(--sage);
+      flex-shrink: 0;
+    }
+
+    .nav-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 2.75rem;
+      height: 2.75rem;
+      padding: 0;
+      border: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--ink);
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-toggle:hover {
+      background-color: var(--bg-alt);
+      border-color: color-mix(in srgb, var(--ink) 24%, transparent);
+    }
+
+    .nav-toggle__bars {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 1.15rem;
+    }
+
+    .nav-toggle__bar {
+      display: block;
+      width: 100%;
+      height: 2px;
+      background-color: currentColor;
+      border-radius: 1px;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      transform-origin: center;
+    }
+
+    .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(2) {
+      opacity: 0;
+    }
+
+    .nav-toggle[aria-expanded="true"] .nav-toggle__bar:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
+    .site-nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .site-nav__list {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      list-style: none;
+      padding: 0;
+    }
+
+    .site-nav a:not(.btn-primary) {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.5rem 0.75rem;
+      color: var(--ink-soft);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .site-nav a:not(.btn-primary):hover {
+      color: var(--ink);
+      background-color: color-mix(in srgb, var(--bg-alt) 80%, transparent);
+    }
+
+    .site-nav__cta {
+      margin-left: var(--space-3);
+    }
+
+    @media (max-width: 860px) {
+      .nav-toggle {
+        display: inline-flex;
+      }
+
+      .site-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        display: none;
+        background-color: color-mix(in srgb, var(--bg) 96%, transparent);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-bottom: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+        padding: var(--space-3) var(--gutter) var(--space-5);
+      }
+
+      .site-nav.is-open {
+        display: block;
+      }
+
+      .site-nav__list {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-1);
+      }
+
+      .site-nav a:not(.btn-primary) {
+        padding: 0.85rem 0.75rem;
+        font-size: var(--text-base);
+      }
+
+      .site-nav__cta {
+        margin-left: 0;
+        margin-top: var(--space-3);
+      }
+
+      .site-nav__cta .btn-primary {
+        width: 100%;
+      }
+
+      body.nav-open {
+        overflow: hidden;
+      }
+    }
+
+    /* ==========================================================================
+       Hero
+       ========================================================================== */
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 55% at 85% 40%, color-mix(in srgb, var(--dusk) 16%, transparent), transparent 70%),
+        radial-gradient(ellipse 55% 45% at 10% 90%, color-mix(in srgb, var(--sand) 18%, transparent), transparent 65%),
+        linear-gradient(165deg, var(--bg) 0%, var(--bg-alt) 55%, var(--bg) 100%);
+    }
+
+    .hero__inner {
+      display: grid;
+      grid-template-columns: 1.05fr 0.85fr;
+      align-items: center;
+      gap: var(--space-8);
+      max-width: var(--width-content);
+      margin-inline: auto;
+      padding: clamp(3rem, 6vw, 5.5rem) var(--gutter) clamp(3.5rem, 7vw, 6rem);
+    }
+
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-5);
+    }
+
+    .hero__eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--dusk);
+    }
+
+    .hero__title {
+      font-size: clamp(2.5rem, 1.7rem + 3.2vw, 4rem);
+      font-weight: var(--weight-display-bold);
+      line-height: 1.08;
+      letter-spacing: -0.02em;
+      max-width: 12ch;
+    }
+
+    .hero__title em {
+      font-style: italic;
+      font-weight: var(--weight-display);
+      color: var(--sage-deep);
+    }
+
+    .hero__lead {
+      font-size: var(--text-lg);
+      line-height: var(--leading-relaxed);
+      color: var(--ink-soft);
+      max-width: 36ch;
+    }
+
+    .hero__actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .hero__meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4) var(--space-5);
+      margin-top: var(--space-2);
+      padding-top: var(--space-5);
+      border-top: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+      width: 100%;
+      max-width: 36rem;
+      list-style: none;
+    }
+
+    .hero__meta-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--ink-soft);
+    }
+
+    .hero__meta-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.35rem;
+      height: 1.35rem;
+      color: var(--sage);
+      flex-shrink: 0;
+    }
+
+    .hero__meta-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .hero__visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: min(52vw, 28rem);
+    }
+
+    .breathing-orb {
+      position: relative;
+      width: min(100%, 26rem);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+    }
+
+    .breathing-orb .orb {
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      transform: scale(0.86);
+      animation: breathe 8s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    .breathing-orb .o1 {
+      width: 100%;
+      height: 100%;
+      background: color-mix(in srgb, var(--sage) 12%, transparent);
+      border: 1px solid color-mix(in srgb, var(--sage) 28%, transparent);
+    }
+
+    .breathing-orb .o2 {
+      width: 78%;
+      height: 78%;
+      background: color-mix(in srgb, var(--sage) 16%, transparent);
+      border: 1px solid color-mix(in srgb, var(--sage) 34%, transparent);
+      animation-delay: 0.12s;
+    }
+
+    .breathing-orb .o3 {
+      width: 72%;
+      height: 72%;
+      background: color-mix(in srgb, var(--dusk) 14%, var(--sage) 10%);
+      border: 1px solid color-mix(in srgb, var(--dusk) 30%, transparent);
+      animation-delay: 0.24s;
+    }
+
+    .breathing-orb .o4 {
+      width: 68%;
+      height: 68%;
+      background:
+        radial-gradient(
+          circle at 50% 45%,
+          color-mix(in srgb, var(--bg) 55%, transparent),
+          color-mix(in srgb, var(--sage) 22%, transparent) 70%
+        );
+      border: 1px solid color-mix(in srgb, var(--sage-deep) 22%, transparent);
+      animation-delay: 0.36s;
+    }
+
+    .orb__label {
+      font-family: var(--font-mono);
+      font-size: clamp(0.7rem, 0.62rem + 0.3vw, 0.85rem);
+      font-weight: var(--weight-medium);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sage-deep);
+      text-align: center;
+      user-select: none;
+    }
+
+    @keyframes breathe {
+      from {
+        transform: scale(0.86);
+      }
+
+      to {
+        transform: scale(1.04);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero__inner {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+        padding-top: var(--space-7);
+        padding-bottom: var(--space-8);
+      }
+
+      .hero__title {
+        max-width: 14ch;
+      }
+
+      .hero__visual {
+        order: -1;
+        min-height: auto;
+      }
+
+      .breathing-orb {
+        width: min(72vw, 20rem);
+      }
+    }
+
+    /* ==========================================================================
+       Shared section chrome
+       ========================================================================== */
+
+    .section {
+      padding: clamp(3.5rem, 7vw, 6.5rem) var(--gutter);
+    }
+
+    .section__inner {
+      max-width: var(--width-content);
+      margin-inline: auto;
+    }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--dusk);
+      margin-bottom: var(--space-4);
+    }
+
+    .section-title {
+      font-size: var(--text-3xl);
+      font-weight: var(--weight-display-bold);
+      letter-spacing: -0.02em;
+      line-height: var(--leading-tight);
+      max-width: 14ch;
+    }
+
+    /* ==========================================================================
+       Philosophy (#about)
+       ========================================================================== */
+
+    .philosophy {
+      background-color: var(--bg);
+    }
+
+    .philosophy__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: clamp(2rem, 5vw, 4.5rem);
+      align-items: start;
+    }
+
+    .philosophy__copy {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+    }
+
+    .philosophy__copy p {
+      max-width: 48ch;
+      font-size: var(--text-lg);
+      color: var(--ink-soft);
+    }
+
+    .philosophy__quote {
+      margin-top: var(--space-2);
+      padding: var(--space-4) 0 var(--space-4) var(--space-5);
+      border-left: 3px solid var(--sage);
+    }
+
+    .philosophy__quote p {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-display);
+      font-style: italic;
+      line-height: var(--leading-snug);
+      color: var(--ink);
+      max-width: 36ch;
+    }
+
+    @media (max-width: 860px) {
+      .philosophy__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+      }
+
+      .section-title {
+        max-width: 18ch;
+      }
+    }
+
+    /* ==========================================================================
+       Services (#services)
+       ========================================================================== */
+
+    .services {
+      background-color: var(--bg-alt);
+    }
+
+    .services__header {
+      margin-bottom: clamp(2rem, 4vw, 3rem);
+      max-width: 40rem;
+    }
+
+    .services__header .section-title {
+      max-width: 16ch;
+    }
+
+    .services__intro {
+      margin-top: var(--space-4);
+      font-size: var(--text-lg);
+      color: var(--ink-soft);
+      max-width: 42ch;
+    }
+
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--border-subtle);
+      border-left: 1px solid var(--border-subtle);
+      background-color: var(--border-subtle);
+    }
+
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: clamp(1.35rem, 2.5vw, 1.85rem);
+      margin: -1px;
+      background-color: var(--bg-alt);
+      border-right: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+      z-index: 0;
+      will-change: transform;
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+    }
+
+    .service-card:hover {
+      z-index: 1;
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      background-color: var(--bg);
+    }
+
+    .service-card__icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      font-size: 1.35rem;
+      line-height: 1;
+      color: var(--sage-deep);
+      will-change: transform;
+      transition: transform 0.25s ease;
+    }
+
+    .service-card:hover .service-card__icon {
+      transform: rotate(6deg);
+    }
+
+    .service-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-display-bold);
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: var(--leading-snug);
+    }
+
+    .service-card__desc {
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+      color: var(--ink-soft);
+      max-width: none;
+      flex-grow: 1;
+    }
+
+    .format-tag {
+      display: inline-flex;
+      align-items: center;
+      margin-top: auto;
+      padding: 0.3rem 0.75rem;
+      border: 1px solid color-mix(in srgb, var(--sage) 35%, transparent);
+      border-radius: var(--radius-pill);
+      background-color: color-mix(in srgb, var(--sage) 10%, transparent);
+      color: var(--sage-deep);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 960px) {
+      .services__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .services__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==========================================================================
+       How it works
+       ========================================================================== */
+
+    .how {
+      background-color: var(--bg);
+    }
+
+    .how__header {
+      margin-bottom: clamp(2rem, 4vw, 3.25rem);
+      max-width: 36rem;
+    }
+
+    .how__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(1.5rem, 3vw, 2.25rem);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      counter-reset: none;
+    }
+
+    .how-step {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      padding-top: var(--space-2);
+    }
+
+    .how-step__num {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 2rem + 2vw, 3.25rem);
+      font-weight: var(--weight-display);
+      font-style: italic;
+      line-height: 1;
+      letter-spacing: -0.03em;
+      color: var(--sage);
+    }
+
+    .how-step__title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-display-bold);
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: var(--leading-snug);
+    }
+
+    .how-step__desc {
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+      color: var(--ink-soft);
+      max-width: 28ch;
+    }
+
+    @media (max-width: 960px) {
+      .how__grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-6) var(--space-5);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .how__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .how-step__desc {
+        max-width: none;
+      }
+    }
+
+    /* ==========================================================================
+       Therapists
+       ========================================================================== */
+
+    .therapists {
+      background-color: var(--bg-alt);
+    }
+
+    .therapists__header {
+      margin-bottom: clamp(2rem, 4vw, 3rem);
+      max-width: 38rem;
+    }
+
+    .therapists__intro {
+      margin-top: var(--space-4);
+      font-size: var(--text-lg);
+      color: var(--ink-soft);
+      max-width: 42ch;
+    }
+
+    .therapists__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(1.25rem, 2.5vw, 1.75rem);
+    }
+
+    .therapist-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      padding: clamp(1.25rem, 2.5vw, 1.75rem);
+      background-color: var(--bg);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .therapist-card__avatar {
+      width: 4.5rem;
+      height: 4.5rem;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .therapist-card__avatar svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .therapist-card__name {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-display-bold);
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: var(--leading-snug);
+    }
+
+    .therapist-card__creds {
+      margin-top: var(--space-1);
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--dusk);
+    }
+
+    .therapist-card__bio {
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+      color: var(--ink-soft);
+      max-width: none;
+    }
+
+    .therapists__footer {
+      margin-top: clamp(1.75rem, 3vw, 2.5rem);
+    }
+
+    .therapists__footer-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--sage-deep);
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--sage-deep) 35%, transparent);
+      padding-bottom: 0.1rem;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .therapists__footer-link:hover {
+      color: var(--sage);
+      border-bottom-color: color-mix(in srgb, var(--sage) 50%, transparent);
+    }
+
+    .therapists__footer-link span[aria-hidden="true"] {
+      font-family: var(--font-mono);
+      will-change: transform;
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .therapists__footer-link:hover span[aria-hidden="true"] {
+      transform: translateX(3px);
+    }
+
+    @media (max-width: 960px) {
+      .therapists__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .therapists__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==========================================================================
+       Testimonials
+       ========================================================================== */
+
+    .testimonials {
+      background-color: var(--ink);
+      color: var(--bg);
+    }
+
+    .testimonials .section-eyebrow {
+      color: color-mix(in srgb, var(--sand) 55%, var(--bg));
+    }
+
+    .testimonials .section-title {
+      color: var(--bg);
+      max-width: 16ch;
+    }
+
+    .testimonials__header {
+      margin-bottom: clamp(2rem, 4vw, 3rem);
+    }
+
+    .testimonials__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid color-mix(in srgb, var(--bg) 16%, transparent);
+      border-left: 1px solid color-mix(in srgb, var(--bg) 16%, transparent);
+      background-color: color-mix(in srgb, var(--bg) 16%, transparent);
+    }
+
+    .testimonial-card {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      padding: clamp(1.35rem, 2.5vw, 1.85rem);
+      margin: -1px;
+      background-color: var(--ink);
+      border-right: 1px solid color-mix(in srgb, var(--bg) 16%, transparent);
+      border-bottom: 1px solid color-mix(in srgb, var(--bg) 16%, transparent);
+    }
+
+    .testimonial-card__quote {
+      font-family: var(--font-display);
+      font-size: clamp(1.15rem, 1rem + 0.6vw, 1.35rem);
+      font-weight: var(--weight-display);
+      font-style: italic;
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+      color: var(--bg);
+      max-width: none;
+    }
+
+    .testimonial-card__who {
+      margin-top: auto;
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: color-mix(in srgb, var(--sand) 55%, var(--bg));
+    }
+
+    @media (max-width: 960px) {
+      .testimonials__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .testimonials__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ==========================================================================
+       Utilities
+       ========================================================================== */
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* ==========================================================================
+       Contact
+       ========================================================================== */
+
+    .contact {
+      background-color: var(--bg);
+    }
+
+    .contact__header {
+      margin-bottom: clamp(2rem, 4vw, 3rem);
+      max-width: 36rem;
+    }
+
+    .contact__grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: start;
+    }
+
+    .contact__details {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    .contact__block {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .contact__label {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--dusk);
+    }
+
+    .contact__value {
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+      color: var(--ink-soft);
+      max-width: none;
+    }
+
+    .contact__value a {
+      color: var(--sage-deep);
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--sage-deep) 30%, transparent);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .contact__value a:hover {
+      color: var(--sage);
+      border-bottom-color: color-mix(in srgb, var(--sage) 45%, transparent);
+    }
+
+    .contact__crisis {
+      padding: var(--space-4) var(--space-5);
+      border-left: 3px solid var(--sand-deep);
+      background-color: color-mix(in srgb, var(--sand) 14%, var(--bg));
+    }
+
+    .contact__crisis-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: var(--weight-display-bold);
+      color: var(--ink);
+      margin-bottom: var(--space-2);
+    }
+
+    .contact__crisis p {
+      font-size: var(--text-sm);
+      line-height: var(--leading-relaxed);
+      color: var(--ink-soft);
+      max-width: none;
+    }
+
+    .contact__crisis a {
+      color: var(--sage-deep);
+      font-weight: var(--weight-medium);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      padding: clamp(1.5rem, 3vw, 2.25rem);
+      background-color: var(--bg-alt);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .contact-form__title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: var(--weight-display-bold);
+      letter-spacing: -0.015em;
+      color: var(--ink);
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .form-field label {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--ink);
+    }
+
+    .form-field .req {
+      color: var(--sage-deep);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      width: 100%;
+      padding: 0.75rem 0.9rem;
+      border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+      border-radius: var(--radius-sm);
+      background-color: var(--bg);
+      color: var(--ink);
+      font-size: var(--text-base);
+      line-height: var(--leading-normal);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .form-field input::placeholder,
+    .form-field textarea::placeholder {
+      color: color-mix(in srgb, var(--ink-soft) 70%, transparent);
+    }
+
+    .form-field input:hover,
+    .form-field textarea:hover {
+      border-color: color-mix(in srgb, var(--ink) 28%, transparent);
+    }
+
+    .form-field input:focus-visible,
+    .form-field textarea:focus-visible {
+      border-color: var(--sage-deep);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--sage) 22%, transparent);
+      outline: none;
+    }
+
+    .form-field textarea {
+      min-height: 8rem;
+      resize: vertical;
+    }
+
+    .format-fieldset {
+      border: 0;
+      padding: 0;
+      margin: 0;
+      min-width: 0;
+    }
+
+    .format-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+
+    .format-pill {
+      position: relative;
+    }
+
+    .format-pill input {
+      position: absolute;
+      opacity: 0;
+      width: 1px;
+      height: 1px;
+      margin: 0;
+      pointer-events: none;
+    }
+
+    .format-pill label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.5rem 1rem;
+      border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+      border-radius: var(--radius-pill);
+      background-color: var(--bg);
+      color: var(--ink-soft);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      cursor: pointer;
+      transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+    }
+
+    .format-pill label:hover {
+      border-color: color-mix(in srgb, var(--sage) 45%, transparent);
+      color: var(--ink);
+    }
+
+    .format-pill input:checked + label {
+      background-color: var(--sage-deep);
+      border-color: var(--sage-deep);
+      color: var(--bg);
+    }
+
+    .format-pill input:focus-visible + label {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-offset);
+    }
+
+    .contact-form__actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+
+    .contact-form__submit {
+      position: relative;
+      min-width: 11rem;
+    }
+
+    .contact-form__submit:disabled {
+      cursor: wait;
+      opacity: 0.85;
+    }
+
+    .contact-form__submit.is-loading .btn-label {
+      opacity: 0.85;
+    }
+
+    .contact-form__submit.is-loading::after {
+      content: "";
+      width: 1rem;
+      height: 1rem;
+      margin-left: 0.15rem;
+      border: 2px solid color-mix(in srgb, var(--bg) 35%, transparent);
+      border-top-color: var(--bg);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .form-status {
+      font-size: var(--text-sm);
+      line-height: var(--leading-snug);
+      min-height: 1.25em;
+    }
+
+    .form-status[data-state="error"] {
+      color: #7a2e2e;
+    }
+
+    /* Success toast */
+    .toast {
+      position: fixed;
+      right: var(--gutter);
+      bottom: var(--space-5);
+      z-index: 1100;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+      max-width: min(24rem, calc(100vw - 2 * var(--gutter)));
+      padding: var(--space-4) var(--space-5);
+      background-color: var(--sage-deep);
+      color: var(--bg);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-md);
+      transform: translateY(120%);
+      opacity: 0;
+      visibility: hidden;
+      transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .toast.is-visible {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .toast__message {
+      font-size: var(--text-sm);
+      line-height: var(--leading-snug);
+      color: var(--bg);
+      max-width: none;
+      margin: 0;
+    }
+
+    .toast__close {
+      flex-shrink: 0;
+      width: 1.75rem;
+      height: 1.75rem;
+      margin: -0.2rem -0.35rem 0 0;
+      border: 0;
+      border-radius: var(--radius-sm);
+      background: transparent;
+      color: var(--bg);
+      font-size: 1.25rem;
+      line-height: 1;
+      opacity: 0.85;
+    }
+
+    .toast__close:hover {
+      opacity: 1;
+      background-color: color-mix(in srgb, var(--bg) 12%, transparent);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .toast {
+        transition: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .contact-form__submit.is-loading::after {
+        animation: none;
+        border-top-color: color-mix(in srgb, var(--bg) 35%, transparent);
+        opacity: 0.7;
+      }
+
+      .form-field input,
+      .form-field textarea,
+      .format-pill label,
+      .contact__value a {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .contact__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+      }
+    }
+
+    /* ==========================================================================
+       Footer
+       ========================================================================== */
+
+    .site-footer {
+      background-color: var(--bg-alt);
+      border-top: 1px solid var(--border-subtle);
+      padding: clamp(2.5rem, 5vw, 4rem) var(--gutter) var(--space-6);
+    }
+
+    .site-footer__inner {
+      max-width: var(--width-content);
+      margin-inline: auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-6);
+    }
+
+    .site-footer__top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--space-5);
+      flex-wrap: wrap;
+    }
+
+    .site-footer__nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2) var(--space-4);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .site-footer__nav a {
+      color: var(--ink-soft);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .site-footer__nav a:hover {
+      color: var(--ink);
+    }
+
+    .site-footer__crisis {
+      max-width: 52ch;
+      font-size: var(--text-sm);
+      line-height: var(--leading-relaxed);
+      color: var(--ink-soft);
+      padding: var(--space-4) 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .site-footer__crisis a {
+      color: var(--sage-deep);
+      font-weight: var(--weight-medium);
+    }
+
+    .site-footer__bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+
+    .site-footer__copy {
+      font-size: var(--text-sm);
+      color: var(--ink-soft);
+      max-width: none;
+    }
+
+    .site-footer__legal {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .site-footer__legal a {
+      font-size: var(--text-sm);
+      color: var(--ink-soft);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .site-footer__legal a:hover {
+      color: var(--ink);
+    }
+
+    @media (max-width: 560px) {
+      .site-footer__top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .site-footer__bottom {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="logo" href="#top">
+        <span class="logo__mark" aria-hidden="true"></span>
+        <span class="logo__text">The Mindful Room</span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        type="button"
+        id="nav-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Open menu"
+      >
+        <span class="nav-toggle__bars" aria-hidden="true">
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+          <span class="nav-toggle__bar"></span>
+        </span>
+      </button>
+
+      <nav class="site-nav" id="primary-nav" aria-label="Primary">
+        <ul class="site-nav__list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how-it-works">How it works</a></li>
+          <li><a href="#therapists">Therapists</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="site-nav__cta">
+            <a class="btn-primary" href="#book">Book a session</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <p class="hero__eyebrow">Clinical therapy · online or in person</p>
+
+          <h1 class="hero__title" id="hero-heading">
+            A quiet room,<br>
+            <em>however</em> you arrive.
+          </h1>
+
+          <p class="hero__lead">
+            Thoughtful, evidence-based care in a space that slows the pace—
+            so you can speak freely, feel steadier, and move forward with clarity.
+          </p>
+
+          <div class="hero__actions">
+            <a class="btn-primary" href="#book">Book your first session</a>
+            <a class="btn-secondary" href="#how-it-works">See how we work</a>
+          </div>
+
+          <ul class="hero__meta">
+            <li class="hero__meta-item">
+              <span class="hero__meta-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M3 12h18"></path>
+                  <path d="M12 3a14 14 0 0 1 0 18"></path>
+                  <path d="M12 3a14 14 0 0 0 0 18"></path>
+                </svg>
+              </span>
+              Online
+            </li>
+            <li class="hero__meta-item">
+              <span class="hero__meta-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                  <path d="M3 10.5 12 4l9 6.5"></path>
+                  <path d="M5.5 9.5V19a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1V9.5"></path>
+                  <path d="M10 20v-5h4v5"></path>
+                </svg>
+              </span>
+              In-person
+            </li>
+            <li class="hero__meta-item">
+              <span class="hero__meta-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+                  <path d="M12 3 4.5 6.5v5.2c0 4.4 3.1 8.4 7.5 9.3 4.4-.9 7.5-4.9 7.5-9.3V6.5L12 3z"></path>
+                  <path d="m9 12 2 2 4-4"></path>
+                </svg>
+              </span>
+              Licensed
+            </li>
+          </ul>
+        </div>
+
+        <div class="hero__visual">
+          <div class="breathing-orb" aria-hidden="true">
+            <div class="orb o1" id="orb-outer">
+              <div class="orb o2">
+                <div class="orb o3">
+                  <div class="orb o4">
+                    <span class="orb__label" id="orb-label">Breathe in</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section philosophy" id="about" aria-labelledby="philosophy-heading">
+      <div class="section__inner philosophy__grid">
+        <div class="philosophy__intro">
+          <p class="section-eyebrow">Philosophy</p>
+          <h2 class="section-title" id="philosophy-heading">Clinical rigor, held gently.</h2>
+        </div>
+
+        <div class="philosophy__copy">
+          <p>
+            We believe good therapy is both precise and human. Our clinicians draw on
+            evidence-based approaches—without rushing you toward neat answers or
+            performing calm for the sake of it.
+          </p>
+          <p>
+            Sessions are paced to your nervous system. You set the tempo; we bring
+            structure, curiosity, and a room that can hold complexity without
+            collapsing into advice.
+          </p>
+          <blockquote class="philosophy__quote">
+            <p>“Care that is careful—measured enough to be trustworthy, soft enough to be usable.”</p>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section services" id="services" aria-labelledby="services-heading">
+      <div class="section__inner">
+        <header class="services__header">
+          <p class="section-eyebrow">Services</p>
+          <h2 class="section-title" id="services-heading">Support shaped to how you live.</h2>
+          <p class="services__intro">
+            Individual and relational care across formats—so treatment fits your
+            week, not the other way around.
+          </p>
+        </header>
+
+        <div class="services__grid">
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">◐</span>
+            <h3 class="service-card__title">Individual therapy</h3>
+            <p class="service-card__desc">
+              One-to-one sessions for anxiety, low mood, life transitions, and the
+              quieter patterns that keep repeating.
+            </p>
+            <span class="format-tag">Online or in-person</span>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">◑</span>
+            <h3 class="service-card__title">Couples &amp; relationships</h3>
+            <p class="service-card__desc">
+              A steadier space to untangle conflict, rebuild trust, and practice
+              speaking without performing.
+            </p>
+            <span class="format-tag">In-person</span>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">◒</span>
+            <h3 class="service-card__title">Anxiety &amp; panic</h3>
+            <p class="service-card__desc">
+              Practical tools grounded in CBT and somatic awareness—paced so your
+              body can catch up with your mind.
+            </p>
+            <span class="format-tag">Online</span>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">◓</span>
+            <h3 class="service-card__title">Trauma-informed care</h3>
+            <p class="service-card__desc">
+              Careful, consent-led work that respects windows of tolerance and
+              never asks you to outrun safety.
+            </p>
+            <span class="format-tag">Hybrid</span>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">◔</span>
+            <h3 class="service-card__title">Burnout &amp; work stress</h3>
+            <p class="service-card__desc">
+              For high-responsibility lives: boundaries, recovery rhythms, and
+              meaning that isn’t only productivity.
+            </p>
+            <span class="format-tag">Online</span>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">◕</span>
+            <h3 class="service-card__title">Adolescent support</h3>
+            <p class="service-card__desc">
+              Age-attuned sessions for teens navigating identity, school pressure,
+              and family change—with caregiver involvement as needed.
+            </p>
+            <span class="format-tag">In-person</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section how" id="how-it-works" aria-labelledby="how-heading">
+      <div class="section__inner">
+        <header class="how__header">
+          <p class="section-eyebrow">How it works</p>
+          <h2 class="section-title" id="how-heading">A clear path into care.</h2>
+        </header>
+
+        <ol class="how__grid">
+          <li class="how-step">
+            <span class="how-step__num" aria-hidden="true">01</span>
+            <h3 class="how-step__title">Share what brings you</h3>
+            <p class="how-step__desc">
+              A short intake helps us understand your goals, timing, and whether
+              online or in-person fits best.
+            </p>
+          </li>
+          <li class="how-step">
+            <span class="how-step__num" aria-hidden="true">02</span>
+            <h3 class="how-step__title">Meet your match</h3>
+            <p class="how-step__desc">
+              We pair you with a licensed clinician whose approach and availability
+              align with what you need.
+            </p>
+          </li>
+          <li class="how-step">
+            <span class="how-step__num" aria-hidden="true">03</span>
+            <h3 class="how-step__title">Begin at your pace</h3>
+            <p class="how-step__desc">
+              Your first sessions establish safety, clarity, and a plan you can
+              actually live with—not a script.
+            </p>
+          </li>
+          <li class="how-step">
+            <span class="how-step__num" aria-hidden="true">04</span>
+            <h3 class="how-step__title">Continue or close well</h3>
+            <p class="how-step__desc">
+              Care evolves with you. When it’s time to pause or finish, we close
+              with intention—not abrupt endings.
+            </p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section therapists" id="therapists" aria-labelledby="therapists-heading">
+      <div class="section__inner">
+        <header class="therapists__header">
+          <p class="section-eyebrow">Therapists</p>
+          <h2 class="section-title" id="therapists-heading">Clinicians who listen closely.</h2>
+          <p class="therapists__intro">
+            Licensed practitioners with varied specialties—matched thoughtfully,
+            never randomly assigned.
+          </p>
+        </header>
+
+        <div class="therapists__grid">
+          <article class="therapist-card">
+            <div class="therapist-card__avatar" aria-hidden="true">
+              <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <defs>
+                  <linearGradient id="av1" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#6B7F5E"/>
+                    <stop offset="100%" stop-color="#586c79"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="48" cy="48" r="48" fill="url(#av1)"/>
+                <circle cx="48" cy="38" r="16" fill="#F0EFE6" opacity="0.85"/>
+                <ellipse cx="48" cy="78" rx="26" ry="20" fill="#F0EFE6" opacity="0.85"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="therapist-card__name">Amara Okonkwo</h3>
+              <p class="therapist-card__creds">LCSW · Anxiety &amp; trauma</p>
+            </div>
+            <p class="therapist-card__bio">
+              Warm, structured care for people who feel “fine” until they aren’t—
+              with room for both evidence and emotion.
+            </p>
+          </article>
+
+          <article class="therapist-card">
+            <div class="therapist-card__avatar" aria-hidden="true">
+              <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <defs>
+                  <linearGradient id="av2" x1="100%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#C9A876"/>
+                    <stop offset="100%" stop-color="#4B5C40"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="48" cy="48" r="48" fill="url(#av2)"/>
+                <circle cx="48" cy="38" r="16" fill="#F0EFE6" opacity="0.85"/>
+                <ellipse cx="48" cy="78" rx="26" ry="20" fill="#F0EFE6" opacity="0.85"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="therapist-card__name">Julian Park</h3>
+              <p class="therapist-card__creds">PhD · CBT &amp; burnout</p>
+            </div>
+            <p class="therapist-card__bio">
+              Clear-eyed support for high-responsibility lives—boundaries, recovery
+              rhythms, and meaning beyond output.
+            </p>
+          </article>
+
+          <article class="therapist-card">
+            <div class="therapist-card__avatar" aria-hidden="true">
+              <svg viewBox="0 0 96 96" xmlns="http://www.w3.org/2000/svg" focusable="false">
+                <defs>
+                  <linearGradient id="av3" x1="0%" y1="100%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#586c79"/>
+                    <stop offset="100%" stop-color="#B4915E"/>
+                  </linearGradient>
+                </defs>
+                <circle cx="48" cy="48" r="48" fill="url(#av3)"/>
+                <circle cx="48" cy="38" r="16" fill="#F0EFE6" opacity="0.85"/>
+                <ellipse cx="48" cy="78" rx="26" ry="20" fill="#F0EFE6" opacity="0.85"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="therapist-card__name">Elena Ruiz</h3>
+              <p class="therapist-card__creds">LMFT · Relationships</p>
+            </div>
+            <p class="therapist-card__bio">
+              Steady couple and family work that slows conflict and rebuilds the
+              ability to speak without performing.
+            </p>
+          </article>
+        </div>
+
+        <div class="therapists__footer">
+          <a class="therapists__footer-link" href="#contact">
+            Meet our full team
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section testimonials" aria-labelledby="testimonials-heading">
+      <div class="section__inner">
+        <header class="testimonials__header">
+          <p class="section-eyebrow">Testimonials</p>
+          <h2 class="section-title" id="testimonials-heading">Words from the room.</h2>
+        </header>
+
+        <div class="testimonials__grid">
+          <figure class="testimonial-card">
+            <blockquote class="testimonial-card__quote">
+              “I finally felt like I didn’t have to tidy my feelings before speaking.
+              The pace was humane—and somehow still rigorous.”
+            </blockquote>
+            <figcaption class="testimonial-card__who">— Mira S. · Individual therapy</figcaption>
+          </figure>
+
+          <figure class="testimonial-card">
+            <blockquote class="testimonial-card__quote">
+              “Online sessions felt as held as in-person. We built tools I still use
+              on hard Tuesdays—not just insight for the hour.”
+            </blockquote>
+            <figcaption class="testimonial-card__who">— Devon K. · Anxiety support</figcaption>
+          </figure>
+
+          <figure class="testimonial-card">
+            <blockquote class="testimonial-card__quote">
+              “As a couple, we stopped rehearsing arguments and started noticing each
+              other again. Quiet care. Real change.”
+            </blockquote>
+            <figcaption class="testimonial-card__who">— Jordan &amp; Lea · Couples</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section contact" id="contact" aria-labelledby="contact-heading">
+      <div class="section__inner">
+        <header class="contact__header">
+          <p class="section-eyebrow">Contact</p>
+          <h2 class="section-title" id="contact-heading">Begin when you’re ready.</h2>
+        </header>
+
+        <div class="contact__grid">
+          <aside class="contact__details">
+            <div class="contact__block">
+              <p class="contact__label">Clinic</p>
+              <p class="contact__value">
+                The Mindful Room<br>
+                214 Willow Lane, Suite 3<br>
+                Portland, OR 97214
+              </p>
+            </div>
+
+            <div class="contact__block">
+              <p class="contact__label">Hours</p>
+              <p class="contact__value">
+                Mon–Thu · 9:00am – 7:00pm<br>
+                Fri · 9:00am – 3:00pm<br>
+                Sat–Sun · Closed
+              </p>
+            </div>
+
+            <div class="contact__block">
+              <p class="contact__label">Phone</p>
+              <p class="contact__value">
+                <a href="tel:+15035550142">(503) 555-0142</a>
+              </p>
+            </div>
+
+            <div class="contact__block">
+              <p class="contact__label">Email</p>
+              <p class="contact__value">
+                <a href="mailto:hello@themindfulroom.care">hello@themindfulroom.care</a>
+              </p>
+            </div>
+
+            <div class="contact__crisis">
+              <p class="contact__crisis-title">Crisis note</p>
+              <p>
+                If you are in immediate danger, call emergency services. In the U.S.,
+                you can also dial or text <a href="tel:988">988</a> for the Suicide &amp;
+                Crisis Lifeline—available 24/7.
+              </p>
+            </div>
+          </aside>
+
+          <form
+            class="contact-form"
+            id="book"
+            action="https://formspree.io/f/yourID"
+            method="POST"
+            novalidate
+          >
+            <h3 class="contact-form__title">Book a session</h3>
+
+            <div class="form-field">
+              <label for="full-name">Full name <span class="req" aria-hidden="true">*</span></label>
+              <input
+                id="full-name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                required
+                aria-required="true"
+                placeholder="Your name"
+              >
+            </div>
+
+            <div class="form-field">
+              <label for="email">Email <span class="req" aria-hidden="true">*</span></label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+                aria-required="true"
+                placeholder="you@example.com"
+              >
+            </div>
+
+            <fieldset class="format-fieldset">
+              <legend class="sr-only">Preferred format</legend>
+              <p class="contact__label" aria-hidden="true">Preferred format</p>
+              <div class="format-pills">
+                <div class="format-pill">
+                  <input type="radio" id="format-online" name="format" value="Online" checked>
+                  <label for="format-online">Online</label>
+                </div>
+                <div class="format-pill">
+                  <input type="radio" id="format-inperson" name="format" value="In-person">
+                  <label for="format-inperson">In-person</label>
+                </div>
+                <div class="format-pill">
+                  <input type="radio" id="format-either" name="format" value="Either">
+                  <label for="format-either">Either</label>
+                </div>
+              </div>
+            </fieldset>
+
+            <div class="form-field">
+              <label for="message">What brings you in?</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Share as much or as little as you’d like."
+              ></textarea>
+            </div>
+
+            <div class="contact-form__actions">
+              <button class="btn-primary contact-form__submit" type="submit">
+                <span class="btn-label">Send message</span>
+              </button>
+              <p class="form-status" id="form-status" role="alert" aria-live="assertive"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div
+    class="toast"
+    id="toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+    hidden
+  >
+    <p class="toast__message" id="toast-message"></p>
+    <button class="toast__close" type="button" aria-label="Dismiss notification">&times;</button>
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <div class="site-footer__top">
+        <a class="logo" href="#top">
+          <span class="logo__mark" aria-hidden="true"></span>
+          <span class="logo__text">The Mindful Room</span>
+        </a>
+
+        <nav aria-label="Footer">
+          <ul class="site-footer__nav">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#how-it-works">How it works</a></li>
+            <li><a href="#therapists">Therapists</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#book">Book a session</a></li>
+          </ul>
+        </nav>
+      </div>
+
+      <p class="site-footer__crisis">
+        If you are in crisis or thinking about harming yourself, call emergency services
+        or contact the Suicide &amp; Crisis Lifeline at <a href="tel:988">988</a> (U.S., 24/7).
+        This website is not a substitute for emergency care.
+      </p>
+
+      <div class="site-footer__bottom">
+        <p class="site-footer__copy">
+          © <span id="footer-year">2026</span> The Mindful Room. All rights reserved.
+        </p>
+        <ul class="site-footer__legal">
+          <li><a href="#privacy">Privacy</a></li>
+          <li><a href="#terms">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById("nav-toggle");
+      const nav = document.getElementById("primary-nav");
+      if (!toggle || !nav) return;
+
+      const mq = window.matchMedia("(max-width: 860px)");
+      let lastFocusedBeforeOpen = null;
+
+      function getFocusable() {
+        return Array.from(
+          nav.querySelectorAll(
+            'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+          )
+        ).filter(function (el) {
+          return !el.hasAttribute("disabled") && el.offsetParent !== null;
+        });
+      }
+
+      function getTrapTargets() {
+        const focusable = getFocusable();
+        return [toggle].concat(focusable);
+      }
+
+      function isOpen() {
+        return toggle.getAttribute("aria-expanded") === "true";
+      }
+
+      function openMenu() {
+        lastFocusedBeforeOpen = document.activeElement;
+        toggle.setAttribute("aria-expanded", "true");
+        toggle.setAttribute("aria-label", "Close menu");
+        nav.classList.add("is-open");
+        document.body.classList.add("nav-open");
+
+        const focusable = getFocusable();
+        if (focusable.length) {
+          focusable[0].focus();
+        }
+      }
+
+      function closeMenu(returnFocus) {
+        if (!isOpen()) return;
+
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Open menu");
+        nav.classList.remove("is-open");
+        document.body.classList.remove("nav-open");
+
+        if (returnFocus !== false) {
+          toggle.focus();
+        }
+      }
+
+      function toggleMenu() {
+        if (isOpen()) {
+          closeMenu(true);
+        } else {
+          openMenu();
+        }
+      }
+
+      toggle.addEventListener("click", function () {
+        toggleMenu();
+      });
+
+      nav.addEventListener("click", function (event) {
+        const link = event.target.closest("a");
+        if (!link || !mq.matches) return;
+        closeMenu(true);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (!isOpen() || !mq.matches) return;
+
+        if (event.key === "Escape") {
+          event.preventDefault();
+          closeMenu(true);
+          return;
+        }
+
+        if (event.key !== "Tab") return;
+
+        const targets = getTrapTargets();
+        if (!targets.length) return;
+
+        const first = targets[0];
+        const last = targets[targets.length - 1];
+        const active = document.activeElement;
+
+        if (event.shiftKey) {
+          if (active === first) {
+            event.preventDefault();
+            last.focus();
+          }
+        } else if (active === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      });
+
+      function handleViewportChange() {
+        if (!mq.matches) {
+          closeMenu(false);
+          if (lastFocusedBeforeOpen === toggle) {
+            lastFocusedBeforeOpen = null;
+          }
+        }
+      }
+
+      if (typeof mq.addEventListener === "function") {
+        mq.addEventListener("change", handleViewportChange);
+      } else if (typeof mq.addListener === "function") {
+        mq.addListener(handleViewportChange);
+      }
+    })();
+
+    (function () {
+      const outerOrb = document.getElementById("orb-outer");
+      const label = document.getElementById("orb-label");
+      if (!outerOrb || !label) return;
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+      let inhaling = true;
+
+      function setLabel(isInhaling) {
+        label.textContent = isInhaling ? "Breathe in" : "Breathe out";
+      }
+
+      function syncFromMotionPreference() {
+        if (reduceMotion.matches) {
+          setLabel(true);
+          return;
+        }
+        setLabel(inhaling);
+      }
+
+      outerOrb.addEventListener("animationiteration", function () {
+        if (reduceMotion.matches) return;
+        inhaling = !inhaling;
+        setLabel(inhaling);
+      });
+
+      syncFromMotionPreference();
+
+      if (typeof reduceMotion.addEventListener === "function") {
+        reduceMotion.addEventListener("change", syncFromMotionPreference);
+      } else if (typeof reduceMotion.addListener === "function") {
+        reduceMotion.addListener(syncFromMotionPreference);
+      }
+    })();
+
+    (function () {
+      const form = document.getElementById("book");
+      if (!form) return;
+
+      const submitBtn = form.querySelector(".contact-form__submit");
+      const btnLabel = submitBtn ? submitBtn.querySelector(".btn-label") : null;
+      const status = document.getElementById("form-status");
+      const toast = document.getElementById("toast");
+      const toastMessage = document.getElementById("toast-message");
+      const toastClose = toast ? toast.querySelector(".toast__close") : null;
+      if (!submitBtn || !btnLabel || !status || !toast || !toastMessage) return;
+
+      const idleLabel = btnLabel.textContent;
+      let toastTimer = null;
+
+      function setLoading(isLoading) {
+        submitBtn.disabled = isLoading;
+        submitBtn.classList.toggle("is-loading", isLoading);
+        btnLabel.textContent = isLoading ? "Sending..." : idleLabel;
+      }
+
+      function setError(message) {
+        status.dataset.state = message ? "error" : "";
+        status.textContent = message || "";
+      }
+
+      function hideToast() {
+        toast.classList.remove("is-visible");
+        toast.hidden = true;
+        if (toastTimer) {
+          window.clearTimeout(toastTimer);
+          toastTimer = null;
+        }
+      }
+
+      function showToast(message) {
+        toastMessage.textContent = message;
+        toast.hidden = false;
+        requestAnimationFrame(function () {
+          toast.classList.add("is-visible");
+        });
+
+        if (toastTimer) window.clearTimeout(toastTimer);
+        toastTimer = window.setTimeout(hideToast, 5600);
+      }
+
+      if (toastClose) {
+        toastClose.addEventListener("click", hideToast);
+      }
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        setError("");
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        setLoading(true);
+
+        fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: {
+            Accept: "application/json"
+          }
+        })
+          .then(function (response) {
+            if (response.ok) {
+              form.reset();
+              const online = form.querySelector("#format-online");
+              if (online) online.checked = true;
+              showToast("Thank you — we’ll be in touch soon.");
+              return;
+            }
+
+            return response
+              .json()
+              .catch(function () {
+                return null;
+              })
+              .then(function (data) {
+                const message =
+                  (data &&
+                    data.errors &&
+                    data.errors
+                      .map(function (err) {
+                        return err.message;
+                      })
+                      .join(" ")) ||
+                  "Something went wrong. Please try again or email us directly.";
+                throw new Error(message);
+              });
+          })
+          .catch(function (error) {
+            setError(
+              error && error.message
+                ? error.message
+                : "Something went wrong. Please try again or email us directly."
+            );
+          })
+          .finally(function () {
+            setLoading(false);
+          });
+      });
+    })();
+
+    (function () {
+      const year = document.getElementById("footer-year");
+      if (year) {
+        year.textContent = String(new Date().getFullYear());
+      }
+
+      const skip = document.querySelector(".skip-link");
+      const main = document.getElementById("main-content");
+      if (skip && main) {
+        skip.addEventListener("click", function () {
+          requestAnimationFrame(function () {
+            main.focus();
+          });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
+
