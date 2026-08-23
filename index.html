@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Mindful Room | Clinical therapy, online or in person</title>
-  <meta name="description" content="The Mindful Room offers individual counselling for young adults navigating life’s transitions—anxiety, relationships, burnout, and more. You don’t need a crisis to deserve a safe space.">
+  <title>The Mindful Room | Therapy with Neha Dukle</title>
+  <meta name="description" content="The Mindful Room is individual psychotherapy with Neha Dukle for young adults navigating life’s transitions—job loss, breakups, relationships, parenting, marriage, and anxiety.">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -454,19 +454,11 @@
     }
 
     .logo__img {
-      width: 1.875rem;
-      height: 1.875rem;
+      width: 40px;
+      height: 40px;
       object-fit: contain;
       flex-shrink: 0;
-      border-radius: var(--radius-sm);
-    }
-
-    .logo__mark {
-      width: 0.55rem;
-      height: 0.55rem;
-      border-radius: 50%;
-      background-color: var(--sage);
-      flex-shrink: 0;
+      border-radius: 8px;
     }
 
     .nav-toggle {
@@ -646,21 +638,21 @@
       max-width: 16ch;
     }
 
-    .hero__lead {
-      font-size: var(--text-lg);
-      line-height: var(--leading-relaxed);
-      color: var(--ink-soft);
-      max-width: 48ch;
-    }
-
-    .hero__subline {
-      font-family: var(--font-display);
+    .hero__title-sub {
+      display: block;
+      margin-top: 0.55rem;
       font-size: clamp(1.15rem, 1rem + 0.7vw, 1.4rem);
       font-weight: var(--weight-display);
       font-style: italic;
       letter-spacing: -0.01em;
       color: var(--sage-deep);
-      margin-top: calc(-1 * var(--space-2));
+    }
+
+    .hero__lead {
+      font-size: var(--text-lg);
+      line-height: var(--leading-relaxed);
+      color: var(--ink-soft);
+      max-width: 48ch;
     }
 
     .hero__actions {
@@ -1097,39 +1089,48 @@
 
     .about-me__grid {
       display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
+      grid-template-columns: 0.7fr 1.3fr;
       gap: clamp(2rem, 5vw, 4rem);
       align-items: start;
     }
 
     .about-me__photo {
-      width: 100%;
-      max-width: 22rem;
-      aspect-ratio: 4 / 5;
-      border-radius: var(--radius-md);
-      overflow: hidden;
-      background:
-        linear-gradient(160deg, color-mix(in srgb, var(--sage) 25%, var(--bg)), var(--bg-alt));
-      border: 1px solid var(--border-subtle);
-      display: grid;
-      place-items: center;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
     }
 
-    .about-me__photo img {
-      width: 100%;
-      height: 100%;
+    .about-avatar {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
       object-fit: cover;
-      background:
-        linear-gradient(160deg, color-mix(in srgb, var(--sage) 25%, var(--bg)), var(--bg-alt));
+      object-position: 50% 18%;
+      box-shadow: var(--shadow-sm);
+      display: block;
+      background: var(--bg);
     }
 
-    .about-me__photo-fallback {
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      font-style: italic;
-      color: var(--sage-deep);
-      text-align: center;
-      padding: var(--space-5);
+    .about-me__locations {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+
+    .about-me__locations p {
+      max-width: none;
+      font-size: var(--text-base);
+    }
+
+    .about-me__locations strong {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: var(--weight-medium);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--dusk);
+      margin-bottom: 0.35rem;
     }
 
     .about-me__copy {
@@ -1196,7 +1197,7 @@
       }
 
       .about-me__photo {
-        max-width: 16rem;
+        justify-content: center;
       }
     }
 
@@ -1231,17 +1232,24 @@
       list-style: none;
       padding: 0;
       margin: 0;
-      max-width: 36rem;
+      max-width: 40rem;
     }
 
     .instagram__thumb {
       position: relative;
-      aspect-ratio: 1;
-      border-radius: var(--radius-md);
-      background:
-        linear-gradient(145deg, color-mix(in srgb, var(--sage) 18%, var(--bg-alt)), var(--bg-alt));
-      border: 1px solid var(--border-subtle);
+      display: block;
       overflow: hidden;
+      border-radius: 12px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .ig-thumb {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 12px;
+      object-fit: cover;
+      display: block;
     }
 
     .instagram__play {
@@ -1249,18 +1257,26 @@
       inset: 0;
       display: grid;
       place-items: center;
-      color: color-mix(in srgb, var(--ink) 55%, transparent);
+      color: #fff;
+      background: color-mix(in srgb, var(--ink) 28%, transparent);
+      pointer-events: none;
     }
 
     .instagram__play svg {
       width: 1.75rem;
       height: 1.75rem;
-      opacity: 0.75;
+      filter: drop-shadow(0 1px 2px color-mix(in srgb, var(--ink) 35%, transparent));
     }
 
-    @media (max-width: 560px) {
+    @media (max-width: 860px) {
       .instagram__grid {
         grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .instagram__grid {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1270,6 +1286,18 @@
 
     .blog {
       background-color: var(--bg-alt);
+    }
+
+    .coming-soon {
+      font-size: var(--text-lg);
+      color: var(--ink-soft);
+      max-width: 42ch;
+    }
+
+    .testimonials-note {
+      max-width: 48ch;
+      font-size: var(--text-lg);
+      color: color-mix(in srgb, var(--sand) 45%, var(--bg));
     }
 
     .blog__header {
@@ -1507,6 +1535,17 @@
       text-decoration: none;
       border-bottom: 1px solid color-mix(in srgb, var(--sage-deep) 30%, transparent);
       transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .contact__whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border-bottom: none !important;
+    }
+
+    .contact__whatsapp:hover {
+      border-bottom: none;
     }
 
     .contact__value a:hover {
@@ -1970,6 +2009,11 @@
     }
 
     @media (max-width: 560px) {
+      .logo {
+        flex-wrap: wrap;
+        max-width: 10rem;
+      }
+
       .site-footer__top {
         flex-direction: column;
         align-items: flex-start;
@@ -1988,7 +2032,7 @@
   <header class="site-header">
     <div class="site-header__inner">
       <a class="logo" href="#top">
-        <img class="logo__img" src="logo.png" alt="The Mindful Room Logo" width="30" height="30">
+        <img class="logo__img" src="logo.png" alt="The Mindful Room Logo" width="40" height="40">
         <span class="logo__text">The Mindful Room</span>
       </a>
 
@@ -2014,10 +2058,9 @@
           <li><a href="#how-it-works">How it works</a></li>
           <li><a href="#about-me">About Me</a></li>
           <li><a href="#instagram">Instagram</a></li>
-          <li><a href="#blog">Blog</a></li>
           <li><a href="#contact">Contact</a></li>
           <li class="site-nav__cta">
-            <a class="btn-primary js-google-form" href="#" target="_blank" rel="noopener noreferrer">Book a session</a>
+            <a class="btn-primary js-google-form" href="https://docs.google.com/forms/d/e/1FAIpQLSd3uU82ArK_3X8ASpUn63MkLg2_PIthPHALXKWFIA09vz-5fA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Book a session</a>
           </li>
         </ul>
       </nav>
@@ -2032,16 +2075,15 @@
 
           <h1 class="hero__title" id="hero-heading">
             You don’t need a crisis to seek help.
+            <span class="hero__title-sub">because this counts too</span>
           </h1>
 
           <p class="hero__lead">
-            The Mindful Room is for young adults navigating life’s transitions—job loss, breakups, new relationships, parenting, marriage, anxiety, and any other life shift. This is a space for you, exactly as you are.
+            The Mindful Room is for young adults navigating life’s transitions – job loss, breakups, new relationships, parenting, marriage, anxiety, and any other life shift. This is a space for you, exactly as you are.
           </p>
 
-          <p class="hero__subline">Because this counts too.</p>
-
           <div class="hero__actions">
-            <a class="btn-ghost js-google-form" href="#">📋 Fill the booking form</a>
+            <a class="btn-primary js-google-form" href="https://docs.google.com/forms/d/e/1FAIpQLSd3uU82ArK_3X8ASpUn63MkLg2_PIthPHALXKWFIA09vz-5fA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Book a session</a>
             <a
               class="btn-ghost js-whatsapp-link"
               href="https://wa.me/919158996211?text=Hi%20I'd%20like%20to%20book%20a%20session"
@@ -2111,12 +2153,12 @@
 
         <div class="philosophy__copy">
           <p>
-            We believe good therapy is both precise and human. Our clinicians draw on
-            evidence-based approaches—without rushing you toward neat answers or
-            performing calm for the sake of it.
+            Good therapy is both precise and human. I draw on evidence-based
+            approaches—without rushing you toward neat answers or performing
+            calm for the sake of it.
           </p>
           <p>
-            Sessions are paced to your nervous system. You set the tempo; we bring
+            Sessions are paced to your nervous system. You set the tempo; I bring
             structure, curiosity, and a room that can hold complexity without
             collapsing into advice.
           </p>
@@ -2178,6 +2220,36 @@
             </p>
             <span class="format-tag">Individual</span>
           </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">◔</span>
+            <h3 class="service-card__title">Marriage</h3>
+            <p class="service-card__desc">
+              Individual support as partnership shifts—communication, identity,
+              and the work of staying (or deciding) with care.
+            </p>
+            <span class="format-tag">Individual</span>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">◕</span>
+            <h3 class="service-card__title">Parenting</h3>
+            <p class="service-card__desc">
+              A steadier place for the overwhelm, guilt, and role-change that
+              can arrive when you become (or are becoming) a parent.
+            </p>
+            <span class="format-tag">Individual</span>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">◑</span>
+            <h3 class="service-card__title">Perinatal wellbeing</h3>
+            <p class="service-card__desc">
+              Support through pregnancy, postpartum, and the identity rebuild
+              that rarely gets a quiet room of its own.
+            </p>
+            <span class="format-tag">Individual</span>
+          </article>
         </div>
       </div>
     </section>
@@ -2201,14 +2273,14 @@
             <span class="how-step__num" aria-hidden="true">02</span>
             <h3 class="how-step__title">Fill out the booking form</h3>
             <p class="how-step__desc">
-              Share a few details about what you’re navigating.
+              Share a few details about what you’re navigating via the Google Form.
             </p>
           </li>
           <li class="how-step">
             <span class="how-step__num" aria-hidden="true">03</span>
             <h3 class="how-step__title">Attend your first session</h3>
             <p class="how-step__desc">
-              We’ll work together at your pace.
+              In-person or online—we’ll work together at your pace.
             </p>
           </li>
           <li class="how-step">
@@ -2225,24 +2297,18 @@
     <section class="section about-me" id="about-me" aria-labelledby="about-me-heading">
       <div class="section__inner about-me__grid">
         <div class="about-me__photo">
-          <img src="avatar.jpg" alt="Counsellor at The Mindful Room">
+          <img src="neha.jpg" alt="Neha Dukle, psychotherapist at The Mindful Room" class="about-avatar" width="220" height="220">
         </div>
 
         <div class="about-me__copy">
           <div>
             <p class="section-eyebrow">About Me</p>
-            <h2 class="section-title" id="about-me-heading">A room held with care.</h2>
-            <p class="about-me__creds" style="margin-top: 0.75rem;">Licensed counsellor · Young adults</p>
+            <h2 class="section-title" id="about-me-heading">Neha Dukle</h2>
+            <p class="about-me__creds" style="margin-top: 0.75rem;">Psychotherapist · ACT &amp; REBT · Young people</p>
           </div>
 
           <p>
-            Hi, I’m [Name]. I am a licensed counsellor dedicated to helping young adults
-            find clarity in the chaos—career pivots, breakups, new relationships, parenting,
-            marriage, anxiety, and the quieter questions that don’t always look like a crisis.
-          </p>
-          <p>
-            Sessions are paced to your nervous system, with room for both evidence-based tools
-            and the human messiness of being in transition.
+            My name is Neha Dukle - a psychotherapist dedicated to helping young people find clarity in chaos. I work with an eclectic approach- trained in ACT and REBT, but never boxed into one method- because people rarely fit into one box either. I chose this niche because in these 10-15 years- life as we know it changes. career shifts, relationships form and end, identities get rebuilt. And yet! Friends and family can hold a lot. But they're not therapy. What this stage needs isn't more advice- but a space where you can just be. No judgement. A space to guide you through changes at your own pace. That's the room I try to hold.
           </p>
 
           <ul class="approach-tags" aria-label="Approach">
@@ -2253,9 +2319,23 @@
             <li>Verified</li>
           </ul>
 
-          <blockquote class="about-me__quote">
-            <p>“You don’t have to tidy your feelings before you arrive.”</p>
-          </blockquote>
+          <div class="about-me__locations">
+            <p>
+              <strong>In-person</strong>
+              Antarman Clinic, Patto-Panjim, Goa<br>
+              Vida Clinics, Margao-Goa<br>
+              Anjani Clinic, Borivali West- Mumbai
+            </p>
+            <p>
+              <strong>Hours</strong>
+              8am to 9pm (Monday to Friday)<br>
+              10AM–5PM (Saturdays)
+            </p>
+          </div>
+
+          <p>
+            <a class="btn-primary js-google-form" href="https://docs.google.com/forms/d/e/1FAIpQLSd3uU82ArK_3X8ASpUn63MkLg2_PIthPHALXKWFIA09vz-5fA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Book a session</a>
+          </p>
         </div>
       </div>
     </section>
@@ -2265,97 +2345,30 @@
         <p class="section-eyebrow">Instagram</p>
         <h2 class="section-title" id="instagram-heading">Journal &amp; Moments</h2>
         <p class="instagram__intro">
-          Short reflections, grounding prompts, and reminders that ordinary life
-          deserves care—shared gently on Instagram.
+          Short reflections and reminders that ordinary life deserves care—
+          shared gently on Instagram.
         </p>
-
-        <ul class="instagram__grid" aria-hidden="true">
-          <li class="instagram__thumb"><span class="instagram__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></li>
-          <li class="instagram__thumb"><span class="instagram__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></li>
-          <li class="instagram__thumb"><span class="instagram__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></li>
-          <li class="instagram__thumb"><span class="instagram__play"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span></li>
-        </ul>
-
         <p>
-          <a class="btn-ghost js-instagram" href="#" target="_blank" rel="noopener noreferrer">Follow me on Instagram @[username]</a>
+          <a class="btn-ghost js-instagram" href="https://instagram.com/yourhandle" target="_blank" rel="noopener noreferrer">Visit my Instagram</a>
         </p>
       </div>
     </section>
 
     <section class="section blog" id="blog" aria-labelledby="blog-heading">
       <div class="section__inner">
-        <header class="blog__header">
-          <div>
-            <p class="section-eyebrow">Blog</p>
-            <h2 class="section-title" id="blog-heading">Articles &amp; reflections.</h2>
-          </div>
-          <a class="btn-secondary js-blog" href="#" target="_blank" rel="noopener noreferrer">Visit my blog</a>
-        </header>
-
-        <ul class="blog__list">
-          <li>
-            <article class="blog-card">
-              <h3 class="blog-card__title">Navigating Anxiety in Uncertain Times</h3>
-              <p class="blog-card__excerpt">
-                Small, body-first practices when the future feels foggy—and why
-                waiting for “certainty” can keep anxiety in charge.
-              </p>
-              <a class="blog-card__link js-blog" href="#">Read more</a>
-            </article>
-          </li>
-          <li>
-            <article class="blog-card">
-              <h3 class="blog-card__title">Breakups and Self-Compassion</h3>
-              <p class="blog-card__excerpt">
-                Grief, identity, and the quiet work of rebuilding a life that
-                isn’t defined only by who left.
-              </p>
-              <a class="blog-card__link js-blog" href="#">Read more</a>
-            </article>
-          </li>
-          <li>
-            <article class="blog-card">
-              <h3 class="blog-card__title">Why You Don’t Need a Crisis to Seek Therapy</h3>
-              <p class="blog-card__excerpt">
-                Why seeking support during life transitions is a form of care—
-                not a last resort.
-              </p>
-              <a class="blog-card__link js-blog" href="#">Read more</a>
-            </article>
-          </li>
-        </ul>
+        <p class="section-eyebrow">Blog</p>
+        <h2 class="section-title" id="blog-heading">Articles &amp; reflections.</h2>
+        <p class="coming-soon">Coming soon – articles on navigating life’s transitions.</p>
       </div>
     </section>
 
     <section class="section testimonials" aria-labelledby="testimonials-heading">
       <div class="section__inner">
-        <header class="testimonials__header">
-          <p class="section-eyebrow">Testimonials</p>
-          <h2 class="section-title" id="testimonials-heading">Words from the room.</h2>
-          <p class="testimonials__note">
-            Testimonials are shared with full confidentiality—available upon request.
-          </p>
-        </header>
-
-        <div class="testimonials__grid">
-          <figure class="testimonial-card">
-            <blockquote class="testimonial-card__quote">
-              “I felt truly heard and understood for the first time.”
-            </blockquote>
-          </figure>
-
-          <figure class="testimonial-card">
-            <blockquote class="testimonial-card__quote">
-              “The pace was humane. I left with tools I still use on hard weeks.”
-            </blockquote>
-          </figure>
-
-          <figure class="testimonial-card">
-            <blockquote class="testimonial-card__quote">
-              “It helped to know I didn’t need a crisis to deserve a safe space.”
-            </blockquote>
-          </figure>
-        </div>
+        <p class="section-eyebrow">Testimonials</p>
+        <h2 class="section-title" id="testimonials-heading">Words from the room.</h2>
+        <p class="testimonials-note">
+          Testimonials are available upon request – confidentiality is paramount.
+        </p>
       </div>
     </section>
 
@@ -2371,34 +2384,33 @@
         <div class="contact__grid">
           <aside class="contact__details">
             <div class="contact__block">
-              <p class="contact__label">Clinic</p>
+              <p class="contact__label">In-person</p>
               <p class="contact__value">
-                The Mindful Room<br>
-                214 Willow Lane, Suite 3<br>
-                Portland, OR 97214
+                Antarman Clinic, Patto-Panjim, Goa<br>
+                Vida Clinics, Margao-Goa<br>
+                Anjani Clinic, Borivali West- Mumbai
               </p>
             </div>
 
             <div class="contact__block">
               <p class="contact__label">Hours</p>
               <p class="contact__value">
-                Mon–Thu · 9:00am – 7:00pm<br>
-                Fri · 9:00am – 3:00pm<br>
-                Sat–Sun · Closed
+                Mon–Fri · 8am – 9pm<br>
+                Saturdays · 10AM – 5PM
               </p>
             </div>
 
             <div class="contact__block">
               <p class="contact__label">Phone</p>
               <p class="contact__value">
-                <a href="tel:+15035550142">(503) 555-0142</a>
+                <a href="tel:+919158996211">9158996211</a>
               </p>
             </div>
 
             <div class="contact__block">
               <p class="contact__label">Email</p>
               <p class="contact__value">
-                <a href="mailto:hello@themindfulroom.care">hello@themindfulroom.care</a>
+                <a href="mailto:npaidukle@gmail.com">npaidukle@gmail.com</a>
               </p>
             </div>
 
@@ -2406,31 +2418,22 @@
               <p class="contact__label">WhatsApp</p>
               <p class="contact__value">
                 <a
-                  class="js-whatsapp-link js-whatsapp-display"
+                  class="js-whatsapp-link contact__whatsapp"
                   href="https://wa.me/919158996211"
                   target="_blank"
                   rel="noopener noreferrer"
-                >+91 91589 96211</a>
+                >
+                  <svg class="wa-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.015-.497-.066-.126-.558-1.35-.764-1.85-.197-.453-.398-.396-.548-.396-.172 0-.372.022-.563.022-.197 0-.523.075-.795.347-.272.272-.957.965-.957 2.354 0 1.39 1.047 2.735 1.193 2.915.146.18 2.1 3.2 5.08 4.49.7.29 1.28.47 1.72.6.72.24 1.36.18 1.87.1.51-.08 1.75-.7 2-1.37.25-.67.25-1.35.17-1.37-.07-.02-.27-.15-.57-.3z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.517 3.66 1.415 5.173L2.18 21.82l4.647-1.235C8.34 21.482 10.11 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.74 0-3.36-.51-4.76-1.38l-.34-.2-2.88.77.76-2.85-.22-.36C3.51 15.36 3 13.74 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/></svg>
+                  <span class="js-whatsapp-display">+91 91589 96211</span>
+                </a>
               </p>
             </div>
 
             <div class="contact__block">
               <p class="contact__label">Booking form</p>
               <p class="contact__value">
-                <a class="js-google-form" href="#" target="_blank" rel="noopener noreferrer">Fill the booking form</a>
+                <a class="js-google-form" href="https://docs.google.com/forms/d/e/1FAIpQLSd3uU82ArK_3X8ASpUn63MkLg2_PIthPHALXKWFIA09vz-5fA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Fill the booking form</a>
               </p>
-            </div>
-
-            <div class="contact__crisis">
-              <p class="contact__crisis-title">Crisis note</p>
-              <p>
-                If you are in crisis, please call one of these Indian helplines immediately:
-              </p>
-              <ul class="contact__helplines">
-                <li>iCall — <a href="tel:+912225521111">022-25521111</a></li>
-                <li>Vandrevala Foundation — <a href="tel:18602662345">1860-266-2345</a></li>
-                <li>AASRA — <a href="tel:+912227546669">91-22-27546669</a></li>
-              </ul>
             </div>
           </aside>
 
@@ -2526,7 +2529,7 @@
     <div class="site-footer__inner">
       <div class="site-footer__top">
         <a class="logo" href="#top">
-          <img class="logo__img" src="logo.png" alt="The Mindful Room Logo" width="30" height="30">
+          <img class="logo__img" src="logo.png" alt="The Mindful Room Logo" width="40" height="40">
           <span class="logo__text">The Mindful Room</span>
         </a>
 
@@ -2537,23 +2540,14 @@
             <li><a href="#how-it-works">How it works</a></li>
             <li><a href="#about-me">About Me</a></li>
             <li><a href="#instagram">Instagram</a></li>
-            <li><a href="#blog">Blog</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a class="js-google-form" href="#" target="_blank" rel="noopener noreferrer">Book a session</a></li>
+            <li><a class="js-google-form" href="https://docs.google.com/forms/d/e/1FAIpQLSd3uU82ArK_3X8ASpUn63MkLg2_PIthPHALXKWFIA09vz-5fA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Book a session</a></li>
           </ul>
         </nav>
       </div>
 
       <div class="site-footer__crisis">
-        <p>
-          If you are in crisis, please call one of these Indian helplines immediately.
-          This website is not a substitute for emergency care.
-        </p>
-        <ul class="contact__helplines">
-          <li>iCall — <a href="tel:+912225521111">022-25521111</a></li>
-          <li>Vandrevala Foundation — <a href="tel:18602662345">1860-266-2345</a></li>
-          <li>AASRA — <a href="tel:+912227546669">91-22-27546669</a></li>
-        </ul>
+        <p>Individual psychotherapy with Neha Dukle · Goa &amp; Mumbai · Online or in person.</p>
       </div>
 
       <div class="site-footer__bottom">
@@ -2581,9 +2575,10 @@
   </a>
 
   <script>
+    /* Replace these with live URLs when ready */
     const WHATSAPP_NUMBER = "+919158996211";
-    const GOOGLE_FORM_URL = "#";
-    const INSTAGRAM_URL = "#";
+    const GOOGLE_FORM_URL = "https://docs.google.com/forms/d/e/1FAIpQLSd3uU82ArK_3X8ASpUn63MkLg2_PIthPHALXKWFIA09vz-5fA/viewform?usp=header";
+    const INSTAGRAM_URL = "https://instagram.com/yourhandle";
     const BLOG_URL = "#";
   </script>
 
