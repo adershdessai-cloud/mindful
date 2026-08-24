@@ -3,8 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Mindful Room | Therapy with Neha Dukle</title>
-  <meta name="description" content="The Mindful Room is individual psychotherapy with Neha Dukle for young adults navigating life’s transitions—job loss, breakups, relationships, parenting, marriage, and anxiety.">
+  <title>The Mindful Room | Therapy for Young Adults, Anxiety, Relationships &amp; Life Transitions – Online &amp; In-Person (Goa, Mumbai)</title>
+  <meta name="description" content="Evidence-based therapy for young adults navigating life transitions, anxiety, relationships, burnout, and more. Online sessions pan-India, in-person in Goa &amp; Mumbai. Confidential, non-judgemental, scientifically backed. Book your free discovery call.">
+  <meta name="keywords" content="therapy for young adults, anxiety therapy, relationship counselling, life transitions, online therapist India, Mumbai psychologist, Goa therapist, stress burnout, quarter-life crisis, REBT, ACT, CBT, online counselling, perinatal wellbeing, marriage counselling, parenting support">
+  <meta name="author" content="Neha Dukle">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://adershdessai-cloud.github.io/mindful/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="The Mindful Room">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:url" content="https://adershdessai-cloud.github.io/mindful/">
+  <meta property="og:title" content="The Mindful Room | Therapy for Young Adults, Anxiety, Relationships &amp; Life Transitions">
+  <meta property="og:description" content="Evidence-based therapy for young adults: anxiety, relationships, burnout, and life transitions. Confidential online counselling pan-India; in-person with a therapist in Goa and Mumbai. Book a free discovery call.">
+  <meta property="og:image" content="https://adershdessai-cloud.github.io/mindful/neha.jpg">
+  <meta property="og:image:alt" content="Neha Dukle – psychotherapist for anxiety, relationships, life transitions">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The Mindful Room | Therapy for Young Adults in Goa, Mumbai &amp; Online">
+  <meta name="twitter:description" content="Confidential, evidence-based therapy for young adults navigating anxiety, relationships, burnout, and life transitions. Online pan-India; in-person in Goa and Mumbai.">
+  <meta name="twitter:image" content="https://adershdessai-cloud.github.io/mindful/neha.jpg">
+  <meta name="twitter:image:alt" content="Neha Dukle – psychotherapist for anxiety, relationships, life transitions">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -515,6 +534,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      overflow: visible;
       background-color: color-mix(in srgb, var(--bg) 82%, transparent);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
@@ -544,6 +564,8 @@
       text-decoration: none;
       letter-spacing: -0.01em;
       flex-shrink: 0;
+      flex-wrap: nowrap;
+      white-space: nowrap;
     }
 
     .logo:hover {
@@ -641,7 +663,7 @@
       margin-left: var(--space-3);
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 1100px) {
       .nav-toggle {
         display: inline-flex;
       }
@@ -716,6 +738,7 @@
       flex-direction: column;
       align-items: flex-start;
       gap: var(--space-5);
+      min-width: 0;
     }
 
     .hero__eyebrow {
@@ -800,62 +823,81 @@
       align-items: center;
       justify-content: center;
       min-height: min(52vw, 28rem);
+      min-width: 0;
+      width: 100%;
     }
 
-    .breathing-orb {
+    .hero-orb-parallax {
       position: relative;
       width: min(100%, 26rem);
-      aspect-ratio: 1;
-      display: grid;
-      place-items: center;
+      max-width: 100%;
     }
 
-    .breathing-orb .orb {
+    .orb-stage,
+    .breathing-orb {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      height: auto;
+    }
+
+    .orb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
       border-radius: 50%;
-      display: grid;
-      place-items: center;
-      transform: scale(0.86);
+      box-sizing: border-box;
+      pointer-events: none;
+      transform-origin: center center;
       animation: breathe 8s ease-in-out infinite alternate;
       will-change: transform;
     }
 
     .breathing-orb .o1 {
-      width: 100%;
-      height: 100%;
-      background: color-mix(in srgb, var(--sage) 12%, transparent);
-      border: 1px solid color-mix(in srgb, var(--sage) 28%, transparent);
+      width: 92%;
+      height: 92%;
+      background: color-mix(in srgb, var(--sage) 14%, transparent);
+      border: 1.5px solid color-mix(in srgb, var(--sage) 42%, transparent);
     }
 
     .breathing-orb .o2 {
-      width: 78%;
-      height: 78%;
-      background: color-mix(in srgb, var(--sage) 16%, transparent);
-      border: 1px solid color-mix(in srgb, var(--sage) 34%, transparent);
+      width: 74%;
+      height: 74%;
+      background: color-mix(in srgb, var(--sage) 18%, transparent);
+      border: 1.5px solid color-mix(in srgb, var(--sage) 48%, transparent);
       animation-delay: 0.12s;
     }
 
     .breathing-orb .o3 {
-      width: 72%;
-      height: 72%;
-      background: color-mix(in srgb, var(--dusk) 14%, var(--sage) 10%);
-      border: 1px solid color-mix(in srgb, var(--dusk) 30%, transparent);
+      width: 54%;
+      height: 54%;
+      background: color-mix(in srgb, var(--dusk) 16%, var(--sage) 12%);
+      border: 1.5px solid color-mix(in srgb, var(--dusk) 38%, transparent);
       animation-delay: 0.24s;
     }
 
     .breathing-orb .o4 {
-      width: 68%;
-      height: 68%;
+      width: 36%;
+      height: 36%;
       background:
         radial-gradient(
           circle at 50% 45%,
-          color-mix(in srgb, var(--bg) 55%, transparent),
-          color-mix(in srgb, var(--sage) 22%, transparent) 70%
+          color-mix(in srgb, var(--bg) 62%, transparent),
+          color-mix(in srgb, var(--sage) 26%, transparent) 70%
         );
-      border: 1px solid color-mix(in srgb, var(--sage-deep) 22%, transparent);
+      border: 1.5px solid color-mix(in srgb, var(--sage-deep) 32%, transparent);
       animation-delay: 0.36s;
     }
 
     .orb__label {
+      position: relative;
+      z-index: 2;
       font-family: var(--font-mono);
       font-size: clamp(0.7rem, 0.62rem + 0.3vw, 0.85rem);
       font-weight: var(--weight-medium);
@@ -864,6 +906,7 @@
       color: var(--sage-deep);
       text-align: center;
       user-select: none;
+      pointer-events: none;
     }
 
     @keyframes breathe {
@@ -873,6 +916,12 @@
 
       to {
         transform: scale(1.04);
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .hero__inner {
+        gap: var(--space-6);
       }
     }
 
@@ -891,10 +940,14 @@
       .hero__visual {
         order: -1;
         min-height: auto;
+        width: 100%;
       }
 
+      .hero-orb-parallax,
+      .orb-stage,
       .breathing-orb {
         width: min(72vw, 20rem);
+        margin-inline: auto;
       }
     }
 
@@ -1125,7 +1178,15 @@
 
     .how__header {
       margin-bottom: clamp(2rem, 4vw, 3.25rem);
-      max-width: 36rem;
+      max-width: 40rem;
+    }
+
+    .how__intro,
+    .contact__intro {
+      margin-top: var(--space-4);
+      font-size: var(--text-lg);
+      color: var(--ink-soft);
+      max-width: 44ch;
     }
 
     .how__grid {
@@ -1168,10 +1229,10 @@
       font-size: var(--text-base);
       line-height: var(--leading-relaxed);
       color: var(--ink-soft);
-      max-width: 28ch;
+      max-width: 36ch;
     }
 
-    @media (max-width: 960px) {
+    @media (max-width: 1100px) {
       .how__grid {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-6) var(--space-5);
@@ -1551,6 +1612,96 @@
       .testimonials__grid {
         grid-template-columns: 1fr;
       }
+    }
+
+    /* ==========================================================================
+       FAQ
+       ========================================================================== */
+
+    .faq {
+      background-color: var(--bg-alt);
+    }
+
+    .faq__header {
+      max-width: 40rem;
+      margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+    }
+
+    .faq__intro {
+      margin-top: var(--space-4);
+      font-size: var(--text-lg);
+      color: var(--ink-soft);
+      max-width: 44ch;
+    }
+
+    .faq__list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      max-width: 46rem;
+    }
+
+    .faq-item {
+      background-color: var(--bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+    }
+
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      cursor: pointer;
+      list-style: none;
+      padding: 1.1rem 1.25rem;
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: var(--weight-display-bold);
+      letter-spacing: -0.01em;
+      line-height: var(--leading-snug);
+      color: var(--ink);
+    }
+
+    .faq-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .faq-item summary::after {
+      content: "+";
+      flex-shrink: 0;
+      font-family: var(--font-mono);
+      font-size: 1.15rem;
+      font-weight: var(--weight-medium);
+      color: var(--sage);
+      line-height: 1;
+    }
+
+    .faq-item[open] summary::after {
+      content: "–";
+    }
+
+    .faq-item summary:focus-visible {
+      outline: var(--focus-ring);
+      outline-offset: var(--focus-offset);
+    }
+
+    .faq-item p {
+      padding: 0 1.25rem 1.2rem;
+      font-size: var(--text-base);
+      line-height: var(--leading-relaxed);
+      color: var(--ink-soft);
+      max-width: 58ch;
+    }
+
+    .faq-item a {
+      color: var(--sage-deep);
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--sage-deep) 30%, transparent);
+    }
+
+    .faq-item a:hover {
+      color: var(--sage);
     }
 
     /* ==========================================================================
@@ -2059,7 +2210,7 @@
     }
 
     @media (max-width: 560px) {
-      .logo {
+      .site-footer .logo {
         flex-wrap: wrap;
         max-width: 10rem;
       }
@@ -2089,6 +2240,132 @@
       }
     </style>
   </noscript>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Psychologist",
+        "@id": "https://adershdessai-cloud.github.io/mindful/#practice",
+        "name": "The Mindful Room",
+        "alternateName": "Neha Dukle",
+        "url": "https://adershdessai-cloud.github.io/mindful/",
+        "image": "https://adershdessai-cloud.github.io/mindful/neha.jpg",
+        "logo": "https://adershdessai-cloud.github.io/mindful/logo.png",
+        "email": "npaidukle@gmail.com",
+        "telephone": "+919158996211",
+        "description": "Evidence-based therapy for young adults navigating life transitions, anxiety, relationships, burnout, marriage, parenting, and perinatal wellbeing. Confidential online counselling pan-India; in-person in Panjim and Margao (Goa) and Borivali West (Mumbai). Approaches include ACT, REBT, and CBT.",
+        "availableLanguage": ["en", "hi"],
+        "priceRange": "$$",
+        "areaServed": [
+          { "@type": "AdministrativeArea", "name": "Goa" },
+          { "@type": "City", "name": "Mumbai" },
+          { "@type": "Country", "name": "India" },
+          { "@type": "Place", "name": "Online" }
+        ],
+        "address": [
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "Antarman Clinic, Patto",
+            "addressLocality": "Panjim",
+            "addressRegion": "Goa",
+            "addressCountry": "IN"
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "Vida Clinics",
+            "addressLocality": "Margao",
+            "addressRegion": "Goa",
+            "addressCountry": "IN"
+          },
+          {
+            "@type": "PostalAddress",
+            "streetAddress": "Anjani Clinic, Borivali West",
+            "addressLocality": "Mumbai",
+            "addressRegion": "Maharashtra",
+            "addressCountry": "IN"
+          }
+        ],
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "21:00"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": "Saturday",
+            "opens": "10:00",
+            "closes": "17:00"
+          }
+        ],
+        "knowsAbout": [
+          "Therapy for young adults",
+          "Anxiety therapy",
+          "Relationship counselling",
+          "Life transitions",
+          "Stress and burnout",
+          "Quarter-life crisis",
+          "ACT",
+          "REBT",
+          "CBT",
+          "Perinatal wellbeing"
+        ],
+        "sameAs": [
+          "https://www.instagram.com/the_mindful_room"
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://adershdessai-cloud.github.io/mindful/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How do I know if I need therapy?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You do not need a crisis. Therapy for young adults can help with life transitions, anxiety, relationship counselling, burnout, a quarter-life crisis, or a sense that something is not sitting right. If you want a confidential, non-judgemental space, a free 15-minute discovery call is a gentle place to start."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens in the first therapy session?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "The first session is paced for you. We talk about what you are navigating—anxiety, relationships, stress, or another life shift—and how evidence-based approaches such as ACT, REBT, or CBT might help. Online therapy sessions are available in Hindi and English, with flexible timings, or in person in Goa and Mumbai."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is online therapy effective?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "For many people, confidential online counselling is as useful as sitting in the same room. Online therapy pan-India means you can meet from home. In-person sessions are also available with a therapist in Goa (Panjim, Margao) and Mumbai (Borivali West)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do you offer sessions in Hindi and English?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Online therapy sessions in Hindi and English are available across India, alongside in-person therapy in Goa and Mumbai."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I book a free discovery call?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Book a free 15-minute discovery call through the Google Form or WhatsApp. After that, we can schedule ongoing therapy at a time that works for you—including evenings."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body id="top">
   <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
@@ -2097,7 +2374,7 @@
   <header class="site-header">
     <div class="site-header__inner">
       <a class="logo" href="#top">
-        <img class="logo__img" src="logo.png" alt="The Mindful Room Logo" width="40" height="40">
+        <img class="logo__img" src="logo.png" alt="The Mindful Room logo – therapy for young adults in India" width="40" height="40">
         <span class="logo__text">The Mindful Room</span>
       </a>
 
@@ -2136,7 +2413,7 @@
     <section class="hero" aria-labelledby="hero-heading">
       <div class="hero__inner">
         <div class="hero__content">
-          <p class="hero__eyebrow hero-enter">Individual counselling · online or in person</p>
+          <p class="hero__eyebrow hero-enter">Therapy for young adults · online or in person</p>
 
           <h1 class="hero__title hero-enter hero-enter-delay-1" id="hero-heading">
             You don’t need a crisis to seek help.
@@ -2144,7 +2421,7 @@
           </h1>
 
           <p class="hero__lead hero-enter hero-enter-delay-2">
-            The Mindful Room is for young adults navigating life’s transitions – job loss, breakups, new relationships, parenting, marriage, anxiety, and any other life shift. This is a space for you, exactly as you are.
+            The Mindful Room is evidence-based therapy for young adults navigating life transitions, anxiety, relationships, burnout, and the quieter shifts in between. Confidential online counselling across India, and in-person sessions in Goa and Mumbai. This is a space for you, exactly as you are.
           </p>
 
           <div class="hero__actions hero-enter hero-enter-delay-3">
@@ -2156,7 +2433,7 @@
               rel="noopener noreferrer"
               data-wa-text="Hi I'd like to book a session"
             ><svg class="wa-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.015-.497-.066-.126-.558-1.35-.764-1.85-.197-.453-.398-.396-.548-.396-.172 0-.372.022-.563.022-.197 0-.523.075-.795.347-.272.272-.957.965-.957 2.354 0 1.39 1.047 2.735 1.193 2.915.146.18 2.1 3.2 5.08 4.49.7.29 1.28.47 1.72.6.72.24 1.36.18 1.87.1.51-.08 1.75-.7 2-1.37.25-.67.25-1.35.17-1.37-.07-.02-.27-.15-.57-.3z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.517 3.66 1.415 5.173L2.18 21.82l4.647-1.235C8.34 21.482 10.11 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.74 0-3.36-.51-4.76-1.38l-.34-.2-2.88.77.76-2.85-.22-.36C3.51 15.36 3 13.74 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/></svg> Book via WhatsApp</a>
-            <a class="btn-secondary" href="#how-it-works">See how we work</a>
+            <a class="btn-secondary" href="#how-it-works">See how therapy works</a>
           </div>
 
           <ul class="hero__meta hero-enter hero-enter-delay-4">
@@ -2169,7 +2446,7 @@
                   <path d="M12 3a14 14 0 0 0 0 18"></path>
                 </svg>
               </span>
-              Online
+              Online pan-India
             </li>
             <li class="hero__meta-item">
               <span class="hero__meta-icon" aria-hidden="true">
@@ -2179,7 +2456,7 @@
                   <path d="M10 20v-5h4v5"></path>
                 </svg>
               </span>
-              In-person
+              In-person · Goa &amp; Mumbai
             </li>
             <li class="hero__meta-item">
               <span class="hero__meta-icon" aria-hidden="true">
@@ -2195,17 +2472,13 @@
 
         <div class="hero__visual">
           <div class="hero-orb-parallax">
-          <div class="breathing-orb" aria-hidden="true">
-            <div class="orb o1">
-              <div class="orb o2">
-                <div class="orb o3">
-                  <div class="orb o4">
-                    <span class="orb__label">breathe</span>
-                  </div>
-                </div>
-              </div>
+            <div class="breathing-orb orb-stage" aria-hidden="true">
+              <div class="orb o1"></div>
+              <div class="orb o2"></div>
+              <div class="orb o3"></div>
+              <div class="orb o4"></div>
+              <span class="orb__label">breathe</span>
             </div>
-          </div>
           </div>
         </div>
       </div>
@@ -2220,7 +2493,7 @@
 
         <div class="philosophy__copy reveal reveal-delay-1">
           <p>
-            We believe good therapy is both precise and human. We draw on evidence-based approaches entirely and draw on what actually works. Come as you are- mid-thought, unsure, still figuring it out. That is not a prerequisite you need to meet before the work begins; it is the work. Sessions are paced for you. You set the tempo- we bring the structure, curiosity and a space that can hold whatever you are carrying.
+            We believe good therapy is both precise and human. Sessions draw on evidence-based approaches—ACT, REBT, and CBT where they help—and on what actually works for you. Come as you are: mid-thought, unsure, still figuring it out. That is not a prerequisite you need to meet before the work begins; it is the work. Therapy for young adults here is confidential, non-judgemental, and paced for you.
           </p>
           <blockquote class="philosophy__quote">
             <p>“Nothing about you needs fixing before you walk in. That is what the room is for.”</p>
@@ -2235,17 +2508,17 @@
           <p class="section-eyebrow">Individual counselling</p>
           <h2 class="section-title" id="services-heading">Areas I work with.</h2>
           <p class="services__intro">
-            One-to-one support for young adults—paced carefully, grounded in evidence,
-            and held without judgement.
+            One-to-one therapy for young adults—anxiety, relationships, burnout,
+            and life transitions—grounded in evidence and held without judgement.
           </p>
         </header>
 
         <div class="services__grid">
           <article class="service-card reveal">
             <span class="service-card__icon" aria-hidden="true">◐</span>
-            <h3 class="service-card__title">Anxiety &amp; Panic</h3>
+            <h3 class="service-card__title">Anxiety &amp; Panic Therapy</h3>
             <p class="service-card__desc">
-              Support for racing thoughts, worry loops, and panic—so your nervous
+              Anxiety therapy for racing thoughts, worry loops, and panic—so your nervous
               system can settle enough to think clearly again.
             </p>
             <span class="format-tag">Individual</span>
@@ -2253,7 +2526,7 @@
 
           <article class="service-card reveal reveal-delay-1">
             <span class="service-card__icon" aria-hidden="true">◑</span>
-            <h3 class="service-card__title">Low Mood &amp; Depression</h3>
+            <h3 class="service-card__title">Low Mood &amp; Depression Support</h3>
             <p class="service-card__desc">
               Gentle, structured care when energy dips, motivation fades, or days
               feel heavier than they used to.
@@ -2263,9 +2536,9 @@
 
           <article class="service-card reveal reveal-delay-2">
             <span class="service-card__icon" aria-hidden="true">◒</span>
-            <h3 class="service-card__title">Relationship Concerns</h3>
+            <h3 class="service-card__title">Relationship Counselling</h3>
             <p class="service-card__desc">
-              Space to untangle patterns in dating, friendships, family, or
+              Relationship counselling to untangle patterns in dating, friendships, family, or
               partnership—without needing a “perfect” story.
             </p>
             <span class="format-tag">Individual</span>
@@ -2275,7 +2548,7 @@
             <span class="service-card__icon" aria-hidden="true">◓</span>
             <h3 class="service-card__title">Stress &amp; Burnout Support</h3>
             <p class="service-card__desc">
-              For high-pressure seasons at work, studies, or home—boundaries,
+              Support for stress and burnout in high-pressure seasons at work, studies, or home—boundaries,
               recovery rhythms, and meaning beyond constant output.
             </p>
             <span class="format-tag">Individual</span>
@@ -2283,9 +2556,9 @@
 
           <article class="service-card reveal">
             <span class="service-card__icon" aria-hidden="true">◔</span>
-            <h3 class="service-card__title">Marriage</h3>
+            <h3 class="service-card__title">Marriage Counselling</h3>
             <p class="service-card__desc">
-              Individual support as partnership shifts—communication, identity,
+              Individual marriage counselling as partnership shifts—communication, identity,
               and the work of staying (or deciding) with care.
             </p>
             <span class="format-tag">Individual</span>
@@ -2293,9 +2566,9 @@
 
           <article class="service-card reveal reveal-delay-1">
             <span class="service-card__icon" aria-hidden="true">◕</span>
-            <h3 class="service-card__title">Parenting</h3>
+            <h3 class="service-card__title">Parenting Support</h3>
             <p class="service-card__desc">
-              A steadier place for the overwhelm, guilt, and role-change that
+              Parenting support for the overwhelm, guilt, and role-change that
               can arrive when you become (or are becoming) a parent.
             </p>
             <span class="format-tag">Individual</span>
@@ -2303,9 +2576,9 @@
 
           <article class="service-card reveal reveal-delay-2">
             <span class="service-card__icon" aria-hidden="true">◑</span>
-            <h3 class="service-card__title">Perinatal wellbeing</h3>
+            <h3 class="service-card__title">Perinatal Wellbeing</h3>
             <p class="service-card__desc">
-              Support through pregnancy, postpartum, and the identity rebuild
+              Perinatal wellbeing support through pregnancy, postpartum, and the identity rebuild
               that rarely gets a quiet room of its own.
             </p>
             <span class="format-tag">Individual</span>
@@ -2319,14 +2592,17 @@
         <header class="how__header reveal">
           <p class="section-eyebrow">How it works</p>
           <h2 class="section-title" id="how-heading">A clear path into care.</h2>
+          <p class="how__intro">
+            Book a free 15-minute discovery call, then begin online therapy sessions in Hindi or English—or meet in person in Goa or Mumbai. Flexible timings, including evenings.
+          </p>
         </header>
 
         <ol class="how__grid">
           <li class="how-step reveal">
             <span class="how-step__num" aria-hidden="true">01</span>
-            <h3 class="how-step__title">Book a 15-min free discovery call</h3>
+            <h3 class="how-step__title">Book a free 15-minute discovery call</h3>
             <p class="how-step__desc">
-              Find out more about therapy and see if we are a good fit.
+              A short conversation to learn more about therapy and see if we are a good fit.
             </p>
           </li>
           <li class="how-step reveal reveal-delay-1">
@@ -2340,7 +2616,7 @@
             <span class="how-step__num" aria-hidden="true">03</span>
             <h3 class="how-step__title">Attend your first session</h3>
             <p class="how-step__desc">
-              In-person or online—we’ll work together at your pace.
+              In-person in Goa or Mumbai, or online therapy sessions in Hindi and English—flexible timings, at your pace.
             </p>
           </li>
           <li class="how-step reveal reveal-delay-3">
@@ -2357,18 +2633,18 @@
     <section class="section about-me" id="about-me" aria-labelledby="about-me-heading">
       <div class="section__inner about-me__grid">
         <div class="about-me__photo reveal">
-          <img src="neha.jpg" alt="Neha Dukle, psychotherapist at The Mindful Room" class="about-avatar" width="220" height="220">
+          <img src="neha.jpg" alt="Neha Dukle – psychotherapist for anxiety, relationships, life transitions" class="about-avatar" width="220" height="220" loading="lazy" decoding="async">
         </div>
 
         <div class="about-me__copy">
           <div class="reveal reveal-delay-1">
             <p class="section-eyebrow">About Me</p>
             <h2 class="section-title" id="about-me-heading">Neha Dukle</h2>
-            <p class="about-me__creds" style="margin-top: 0.75rem;">Psychotherapist · ACT &amp; REBT · Young people</p>
+            <p class="about-me__creds" style="margin-top: 0.75rem;">Psychotherapist · ACT, REBT &amp; CBT · Young adults</p>
           </div>
 
           <p class="reveal reveal-delay-2">
-            My name is Neha Dukle - a psychotherapist dedicated to helping young people find clarity in chaos. I work with an eclectic approach- trained in ACT and REBT, but never boxed into one method- because people rarely fit into one box either. I chose this niche because in these 10-15 years- life as we know it changes. career shifts, relationships form and end, identities get rebuilt. And yet! Friends and family can hold a lot. But they're not therapy. What this stage needs isn't more advice- but a space where you can just be. No judgement. A space to guide you through changes at your own pace. That's the room I try to hold.
+            My name is Neha Dukle — a psychotherapist offering evidence-based therapy for young adults. I work with an eclectic approach, trained in ACT and REBT, and drawing on CBT where it helps, because people rarely fit one method. I chose this niche because these 10–15 years—the quarter-life stretch—are when life transitions land: career shifts, relationships form and end, identities get rebuilt. Friends and family can hold a lot. But they’re not therapy. What this stage needs isn’t more advice, but a confidential, non-judgemental space where you can just be. That’s the room I try to hold.
           </p>
 
           <ul class="approach-tags reveal reveal-delay-3" aria-label="Approach">
@@ -2405,11 +2681,10 @@
         <p class="section-eyebrow">Instagram</p>
         <h2 class="section-title" id="instagram-heading">Journal &amp; Moments</h2>
         <p class="instagram__intro">
-          Short reflections and reminders that ordinary life deserves care—
-          shared gently on Instagram.
+          Short notes on therapy for young adults, mental wellness, and grounding techniques—shared gently on Instagram.
         </p>
         <p>
-          <a class="btn-ghost js-instagram" href="https://www.instagram.com/the_mindful_room?igsi=YnRmZjVwbzh3dTJ3&utm_source=qr" target="_blank" rel="noopener noreferrer">Visit my Instagram</a>
+          <a class="btn-ghost js-instagram" href="https://www.instagram.com/the_mindful_room?igsi=YnRmZjVwbzh3dTJ3&utm_source=qr" target="_blank" rel="noopener noreferrer">Follow therapy notes on Instagram</a>
         </p>
       </div>
     </section>
@@ -2418,7 +2693,7 @@
       <div class="section__inner reveal">
         <p class="section-eyebrow">Blog</p>
         <h2 class="section-title" id="blog-heading">Articles &amp; reflections.</h2>
-        <p class="coming-soon">Coming soon – articles on navigating life’s transitions.</p>
+        <p class="coming-soon">Coming soon – articles on overthinking, self-worth, emotional regulation, and navigating life’s transitions.</p>
       </div>
     </section>
 
@@ -2427,18 +2702,71 @@
         <p class="section-eyebrow">Testimonials</p>
         <h2 class="section-title" id="testimonials-heading">Words from the room.</h2>
         <p class="testimonials-note">
-          Testimonials are available upon request – confidentiality is paramount.
+          Client testimonials are available upon request – confidentiality is paramount in therapy for young adults.
         </p>
       </div>
     </section>
 
 
 
+    <section class="section faq" id="faq" aria-labelledby="faq-heading">
+      <div class="section__inner">
+        <header class="faq__header reveal">
+          <p class="section-eyebrow">Questions</p>
+          <h2 class="section-title" id="faq-heading">A few things people ask.</h2>
+          <p class="faq__intro">
+            Short answers about therapy for young adults, online counselling, and how to begin.
+          </p>
+        </header>
+
+        <div class="faq__list">
+          <details class="faq-item reveal">
+            <summary>How do I know if I need therapy?</summary>
+            <p>
+              You don’t need a crisis. Therapy for young adults can help with life transitions, anxiety, relationship counselling, burnout, a quarter-life crisis, or a sense that something isn’t sitting right. If you want a confidential, non-judgemental space, a free 15-minute discovery call is a gentle place to start.
+            </p>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>What happens in the first therapy session?</summary>
+            <p>
+              The first session is paced for you. We talk about what you’re navigating—anxiety, relationships, stress, or another life shift—and how evidence-based approaches such as ACT, REBT, or CBT might help. Online therapy sessions are available in Hindi and English, with flexible timings, or in person in Goa and Mumbai.
+            </p>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-2">
+            <summary>Is online therapy effective?</summary>
+            <p>
+              For many people, confidential online counselling is as useful as sitting in the same room. Online therapy pan-India means you can meet from home. In-person sessions are also available with a therapist in Goa (Panjim, Margao) and Mumbai (Borivali West).
+            </p>
+          </details>
+
+          <details class="faq-item reveal">
+            <summary>Do you offer sessions in Hindi and English?</summary>
+            <p>
+              Yes. Online therapy sessions in Hindi and English are available across India, alongside in-person therapy in Goa and Mumbai.
+            </p>
+          </details>
+
+          <details class="faq-item reveal reveal-delay-1">
+            <summary>How do I book a free discovery call?</summary>
+            <p>
+              <a class="js-google-form" href="https://docs.google.com/forms/d/e/1FAIpQLSd3uU82ArK_3X8ASpUn63MkLg2_PIthPHALXKWFIA09vz-5fA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Book a session via Google Form</a>
+              or message on WhatsApp to book a free 15-minute discovery call. After that, we can schedule ongoing therapy at a time that works for you—including evenings.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <section class="section contact" id="contact" aria-labelledby="contact-heading">
       <div class="section__inner">
         <header class="contact__header reveal">
           <p class="section-eyebrow">Contact</p>
           <h2 class="section-title" id="contact-heading">Begin when you’re ready.</h2>
+          <p class="contact__intro">
+            Confidential online counselling and online therapy pan-India, plus in-person sessions with a therapist in Goa (Panjim, Margao) and Mumbai (Borivali West).
+          </p>
         </header>
 
         <div class="contact__grid">
@@ -2492,7 +2820,7 @@
             <div class="contact__block">
               <p class="contact__label">Booking form</p>
               <p class="contact__value">
-                <a class="js-google-form" href="https://docs.google.com/forms/d/e/1FAIpQLSd3uU82ArK_3X8ASpUn63MkLg2_PIthPHALXKWFIA09vz-5fA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Fill the booking form</a>
+                <a class="js-google-form" href="https://docs.google.com/forms/d/e/1FAIpQLSd3uU82ArK_3X8ASpUn63MkLg2_PIthPHALXKWFIA09vz-5fA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Book a session via Google Form</a>
               </p>
             </div>
           </aside>
@@ -2504,7 +2832,7 @@
             method="POST"
             novalidate
           >
-            <h3 class="contact-form__title">Book a session</h3>
+            <h3 class="contact-form__title">Request a therapy session</h3>
 
             <div class="form-field">
               <label for="full-name">Full name <span class="req" aria-hidden="true">*</span></label>
@@ -2589,25 +2917,29 @@
     <div class="site-footer__inner">
       <div class="site-footer__top">
         <a class="logo" href="#top">
-          <img class="logo__img" src="logo.png" alt="The Mindful Room Logo" width="40" height="40">
+          <img class="logo__img" src="logo.png" alt="The Mindful Room logo – therapy for young adults in India" width="40" height="40" loading="lazy" decoding="async">
           <span class="logo__text">The Mindful Room</span>
         </a>
 
         <nav aria-label="Footer">
           <ul class="site-footer__nav">
-            <li><a href="#about">About</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#how-it-works">How it works</a></li>
-            <li><a href="#about-me">About Me</a></li>
-            <li><a href="#instagram">Instagram</a></li>
+            <li><a href="#about">About the practice</a></li>
+            <li><a href="#services">Therapy services</a></li>
+            <li><a href="#how-it-works">How therapy works</a></li>
+            <li><a href="#about-me">About Neha Dukle</a></li>
+            <li><a href="#faq">Therapy FAQs</a></li>
+            <li><a href="#instagram">Therapy notes on Instagram</a></li>
             <li><a href="#contact">Contact</a></li>
-            <li><a class="js-google-form" href="https://docs.google.com/forms/d/e/1FAIpQLSd3uU82ArK_3X8ASpUn63MkLg2_PIthPHALXKWFIA09vz-5fA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Book a session</a></li>
+            <li><a href="#contact">Therapist in Goa</a></li>
+            <li><a href="#contact">Therapist in Mumbai</a></li>
+            <li><a href="#contact">Online therapist in India</a></li>
+            <li><a class="js-google-form" href="https://docs.google.com/forms/d/e/1FAIpQLSd3uU82ArK_3X8ASpUn63MkLg2_PIthPHALXKWFIA09vz-5fA/viewform?usp=header" target="_blank" rel="noopener noreferrer">Book a session via Google Form</a></li>
           </ul>
         </nav>
       </div>
 
       <p class="site-footer__note">
-        Individual psychotherapy with Neha Dukle · Goa &amp; Mumbai · Online or in person.
+        Evidence-based therapy for young adults with Neha Dukle · Therapist in Goa &amp; Mumbai · Online therapist in India.
       </p>
 
       <div class="site-footer__bottom">
@@ -2628,7 +2960,7 @@
     target="_blank"
     rel="noopener noreferrer"
     data-wa-text="Hi I'd like to book a session"
-    aria-label="Book via WhatsApp"
+    aria-label="Book a therapy session on WhatsApp"
   >
     <svg class="wa-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.015-.497-.066-.126-.558-1.35-.764-1.85-.197-.453-.398-.396-.548-.396-.172 0-.372.022-.563.022-.197 0-.523.075-.795.347-.272.272-.957.965-.957 2.354 0 1.39 1.047 2.735 1.193 2.915.146.18 2.1 3.2 5.08 4.49.7.29 1.28.47 1.72.6.72.24 1.36.18 1.87.1.51-.08 1.75-.7 2-1.37.25-.67.25-1.35.17-1.37-.07-.02-.27-.15-.57-.3z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.517 3.66 1.415 5.173L2.18 21.82l4.647-1.235C8.34 21.482 10.11 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18c-1.74 0-3.36-.51-4.76-1.38l-.34-.2-2.88.77.76-2.85-.22-.36C3.51 15.36 3 13.74 3 12c0-4.97 4.03-9 9-9s9 4.03 9 9-4.03 9-9 9z" fill="#25D366"/></svg>
     <span class="whatsapp-fab__text">Book via WhatsApp</span>
@@ -2694,7 +3026,7 @@
       const nav = document.getElementById("primary-nav");
       if (!toggle || !nav) return;
 
-      const mq = window.matchMedia("(max-width: 860px)");
+      const mq = window.matchMedia("(max-width: 1100px)");
       let lastFocusedBeforeOpen = null;
 
       function getFocusable() {
